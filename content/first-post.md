@@ -9,11 +9,9 @@ In order to understand what decorators are, you should understand below concepts
 1. Callables
 2. Closures
 
-These are pre-requisites in understanding decorators well.
-
 # Callables
 
-In python everything is an object. An object is callable, if it can be called. The easiest way to check if an object can be called is by passing object to built-in callable function and get a return value as True. If return value is Flase, object is not callable. Lets take few examples:
+In python everything is an object. An object is callable, if it can be called like a function/method. The easiest way to check if an object can be called is by passing object to built-in callable function and get a return value as True. Lets take few examples:
 
 ```python
 x = 3
@@ -39,7 +37,7 @@ True
 
 Do you notice both function and class return True and are callable ? What makes them callable.
 Well there is a special dunder method which is invoked when a function or a class is called.
-This special method is __call__. This means a callable object do have __call__ method defined underlying.
+This special method is `__call__`. This means a callable object do have `__call__` method defined underlying.
 
 Lets check ourselves:
 
