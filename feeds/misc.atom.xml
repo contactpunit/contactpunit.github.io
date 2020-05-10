@@ -53,5 +53,5 @@ This special method is &lt;code&gt;__call__&lt;/code&gt;. This means a callable 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Again we can see &lt;strong&gt;call&lt;/strong&gt; method being available. &lt;/p&gt;
+&lt;p&gt;Again we can see &lt;code&gt;__call__&lt;/code&gt; method being available. &lt;/p&gt;
 &lt;p&gt;In my next blog I will explain what closures are.&lt;/p&gt;</content><category term="misc"></category></entry></feed>
