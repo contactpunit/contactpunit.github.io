@@ -1,4 +1,4 @@
-title: Concepts you should know, to understand Decorators well !!
+title: Concepts you should know, to understand Decorators well
 date: 2020-05-10 15:45
 author: Punit Jain
 
