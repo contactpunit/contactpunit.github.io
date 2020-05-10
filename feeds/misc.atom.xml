@@ -1,5 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>My First Python Website - misc</title><link href="/" rel="alternate"></link><link href="/feeds/misc.atom.xml" rel="self"></link><id>/</id><updated>2020-05-10T15:45:00+05:30</updated><entry><title>First Post on decorators</title><link href="/first-post-on-decorators.html" rel="alternate"></link><published>2020-05-10T15:45:00+05:30</published><updated>2020-05-10T15:45:00+05:30</updated><author><name>Punit Jain</name></author><id>tag:None,2020-05-10:/first-post-on-decorators.html</id><content type="html">&lt;h1&gt;I am On My Way To Internet Fame and Fortune!&lt;/h1&gt;
-&lt;p&gt;This is my first post on my new blog. While not super informative it
-should convey my sense of excitement and eagerness to engage with you,
-the reader!&lt;/p&gt;</content><category term="misc"></category></entry></feed>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>My Tech Blogs - misc</title><link href="/" rel="alternate"></link><link href="/feeds/misc.atom.xml" rel="self"></link><id>/</id><updated>2020-05-10T15:45:00+05:30</updated><entry><title>Concepts you should know, to understand Decorators well !!</title><link href="/concepts-you-should-know-to-understand-decorators-well.html" rel="alternate"></link><published>2020-05-10T15:45:00+05:30</published><updated>2020-05-10T15:45:00+05:30</updated><author><name>Punit Jain</name></author><id>tag:None,2020-05-10:/concepts-you-should-know-to-understand-decorators-well.html</id><summary type="html">&lt;h1&gt;Pre-requisites in understanding Decorators&lt;/h1&gt;
+&lt;p&gt;In order to understand what decorators are, you should understand below concepts which are centric to decorators.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Callables&lt;/li&gt;
+&lt;li&gt;Closures&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;These are pre-requisites in understanding decorators well.&lt;/p&gt;
+&lt;h1&gt;Callables&lt;/h1&gt;
+&lt;p&gt;In python everything is an object. An object is callable, if it can be called. The easiest way to …&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Pre-requisites in understanding Decorators&lt;/h1&gt;
+&lt;p&gt;In order to understand what decorators are, you should understand below concepts which are centric to decorators.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Callables&lt;/li&gt;
+&lt;li&gt;Closures&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;These are pre-requisites in understanding decorators well.&lt;/p&gt;
+&lt;h1&gt;Callables&lt;/h1&gt;
+&lt;p&gt;In python everything is an object. An object is callable, if it can be called. The easiest way to check if an object can be called is by passing object to built-in callable function and get a return value as True. If return value is Flase, object is not callable. Lets take few examples:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;callable&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="kc"&gt;False&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;x is a variable and not a callable.No surprise here.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;print_name&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Good Morning &lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;callable&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;print_name&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="kc"&gt;True&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Demo&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+  &lt;span class="k"&gt;pass&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;callable&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Demo&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="kc"&gt;True&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Do you notice both function and class return True and are callable ? What makes them callable.
+Well there is a special dunder method which is invoked when a function or a class is called.
+This special method is &lt;strong&gt;call&lt;/strong&gt;. This means a callable object do have &lt;strong&gt;call&lt;/strong&gt; method defined underlying.&lt;/p&gt;
+&lt;p&gt;Lets check ourselves:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;dir(print_name)
+['&lt;strong&gt;annotations&lt;/strong&gt;', '&lt;strong&gt;call&lt;/strong&gt;', '&lt;strong&gt;class&lt;/strong&gt;', '&lt;strong&gt;closure&lt;/strong&gt;', '&lt;strong&gt;code&lt;/strong&gt;', '&lt;strong&gt;defaults&lt;/strong&gt;', '&lt;strong&gt;delattr&lt;/strong&gt;', '&lt;strong&gt;dict&lt;/strong&gt;', '&lt;strong&gt;dir&lt;/strong&gt;', '&lt;strong&gt;doc&lt;/strong&gt;', '&lt;strong&gt;eq&lt;/strong&gt;', '&lt;strong&gt;format&lt;/strong&gt;', '&lt;strong&gt;ge&lt;/strong&gt;', '&lt;strong&gt;get&lt;/strong&gt;', '&lt;strong&gt;getattribute&lt;/strong&gt;', '&lt;strong&gt;globals&lt;/strong&gt;', '&lt;strong&gt;gt&lt;/strong&gt;', '&lt;strong&gt;hash&lt;/strong&gt;', '&lt;strong&gt;init&lt;/strong&gt;', '&lt;strong&gt;init_subclass&lt;/strong&gt;', '&lt;strong&gt;kwdefaults&lt;/strong&gt;', '&lt;strong&gt;le&lt;/strong&gt;', '&lt;strong&gt;lt&lt;/strong&gt;', '&lt;strong&gt;module&lt;/strong&gt;', '&lt;strong&gt;name&lt;/strong&gt;', '&lt;strong&gt;ne&lt;/strong&gt;', '&lt;strong&gt;new&lt;/strong&gt;', '&lt;strong&gt;qualname&lt;/strong&gt;', '&lt;strong&gt;reduce&lt;/strong&gt;', '&lt;strong&gt;reduce_ex&lt;/strong&gt;', '&lt;strong&gt;repr&lt;/strong&gt;', '&lt;strong&gt;setattr&lt;/strong&gt;', '&lt;strong&gt;sizeof&lt;/strong&gt;', '&lt;strong&gt;str&lt;/strong&gt;', '&lt;strong&gt;subclasshook&lt;/strong&gt;']&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Do you see &lt;strong&gt;call&lt;/strong&gt; method defined for function class ?&lt;/p&gt;
+&lt;p&gt;Lets check for custom useless class we created&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;dir(Demo)
+['&lt;strong&gt;class&lt;/strong&gt;', '&lt;strong&gt;delattr&lt;/strong&gt;', '&lt;strong&gt;dict&lt;/strong&gt;', '&lt;strong&gt;dir&lt;/strong&gt;', '&lt;strong&gt;doc&lt;/strong&gt;', '&lt;strong&gt;eq&lt;/strong&gt;', '&lt;strong&gt;format&lt;/strong&gt;', '&lt;strong&gt;ge&lt;/strong&gt;', '&lt;strong&gt;getattribute&lt;/strong&gt;', '&lt;strong&gt;gt&lt;/strong&gt;', '&lt;strong&gt;hash&lt;/strong&gt;', '&lt;strong&gt;init&lt;/strong&gt;', '&lt;strong&gt;init_subclass&lt;/strong&gt;', '&lt;strong&gt;le&lt;/strong&gt;', '&lt;strong&gt;lt&lt;/strong&gt;', '&lt;strong&gt;module&lt;/strong&gt;', '&lt;strong&gt;ne&lt;/strong&gt;', '&lt;strong&gt;new&lt;/strong&gt;', '&lt;strong&gt;reduce&lt;/strong&gt;', '&lt;strong&gt;reduce_ex&lt;/strong&gt;', '&lt;strong&gt;repr&lt;/strong&gt;', '&lt;strong&gt;setattr&lt;/strong&gt;', '&lt;strong&gt;sizeof&lt;/strong&gt;', '&lt;strong&gt;str&lt;/strong&gt;', '&lt;strong&gt;subclasshook&lt;/strong&gt;', '&lt;strong&gt;weakref&lt;/strong&gt;']
+&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Again we can see &lt;strong&gt;call&lt;/strong&gt; method being available. &lt;/p&gt;
+&lt;p&gt;In my next blog I will explain what closures are.&lt;/p&gt;</content><category term="misc"></category></entry></feed>

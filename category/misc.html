@@ -2,23 +2,23 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>My First Python Website - misc</title>
+        <title>My Tech Blogs - misc</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
-        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="My First Python Website Atom Feed" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="My Tech Blogs Atom Feed" />
 </head>
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="/">My First Python Website </a></h1>
+                <h1><a href="/">My Tech Blogs </a></h1>
                 <nav><ul>
-                    <li><a href="/pages/about-decorators.html">About Decorators</a></li>
+                    <li><a href="/pages/decorator-pre-requisites.html">Decorator Pre-requisites</a></li>
                     <li class="active"><a href="/category/misc.html">misc</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/first-post-on-decorators.html">First Post on decorators</a></h1>
+                    <h1 class="entry-title"><a href="/concepts-you-should-know-to-understand-decorators-well.html">Concepts you should know, to understand Decorators well !!</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2020-05-10T15:45:00+05:30">
                 Published: Sun 10 May 2020
@@ -29,10 +29,62 @@
         </address>
 <p>In <a href="/category/misc.html">misc</a>.</p>
 
-</footer><!-- /.post-info --><h1>I am On My Way To Internet Fame and Fortune!</h1>
-<p>This is my first post on my new blog. While not super informative it
-should convey my sense of excitement and eagerness to engage with you,
-the reader!</p>                </article>
+</footer><!-- /.post-info --><h1>Pre-requisites in understanding Decorators</h1>
+<p>In order to understand what decorators are, you should understand below concepts which are centric to decorators.</p>
+<ol>
+<li>Callables</li>
+<li>Closures</li>
+</ol>
+<p>These are pre-requisites in understanding decorators well.</p>
+<h1>Callables</h1>
+<p>In python everything is an object. An object is callable, if it can be called. The easiest way to check if an object can be called is by passing object to built-in callable function and get a return value as True. If return value is Flase, object is not callable. Lets take few examples:</p>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">callable</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="kc">False</span>
+</code></pre></div>
+
+
+<p>x is a variable and not a callable.No surprise here.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">print_name</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Good Morning </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">callable</span><span class="p">(</span><span class="n">print_name</span><span class="p">))</span>
+<span class="kc">True</span>
+</code></pre></div>
+
+
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Demo</span><span class="p">:</span>
+  <span class="k">pass</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">callable</span><span class="p">(</span><span class="n">Demo</span><span class="p">))</span>
+<span class="kc">True</span>
+</code></pre></div>
+
+
+<p>Do you notice both function and class return True and are callable ? What makes them callable.
+Well there is a special dunder method which is invoked when a function or a class is called.
+This special method is <strong>call</strong>. This means a callable object do have <strong>call</strong> method defined underlying.</p>
+<p>Lets check ourselves:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>dir(print_name)
+['<strong>annotations</strong>', '<strong>call</strong>', '<strong>class</strong>', '<strong>closure</strong>', '<strong>code</strong>', '<strong>defaults</strong>', '<strong>delattr</strong>', '<strong>dict</strong>', '<strong>dir</strong>', '<strong>doc</strong>', '<strong>eq</strong>', '<strong>format</strong>', '<strong>ge</strong>', '<strong>get</strong>', '<strong>getattribute</strong>', '<strong>globals</strong>', '<strong>gt</strong>', '<strong>hash</strong>', '<strong>init</strong>', '<strong>init_subclass</strong>', '<strong>kwdefaults</strong>', '<strong>le</strong>', '<strong>lt</strong>', '<strong>module</strong>', '<strong>name</strong>', '<strong>ne</strong>', '<strong>new</strong>', '<strong>qualname</strong>', '<strong>reduce</strong>', '<strong>reduce_ex</strong>', '<strong>repr</strong>', '<strong>setattr</strong>', '<strong>sizeof</strong>', '<strong>str</strong>', '<strong>subclasshook</strong>']</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Do you see <strong>call</strong> method defined for function class ?</p>
+<p>Lets check for custom useless class we created</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>dir(Demo)
+['<strong>class</strong>', '<strong>delattr</strong>', '<strong>dict</strong>', '<strong>dir</strong>', '<strong>doc</strong>', '<strong>eq</strong>', '<strong>format</strong>', '<strong>ge</strong>', '<strong>getattribute</strong>', '<strong>gt</strong>', '<strong>hash</strong>', '<strong>init</strong>', '<strong>init_subclass</strong>', '<strong>le</strong>', '<strong>lt</strong>', '<strong>module</strong>', '<strong>ne</strong>', '<strong>new</strong>', '<strong>reduce</strong>', '<strong>reduce_ex</strong>', '<strong>repr</strong>', '<strong>setattr</strong>', '<strong>sizeof</strong>', '<strong>str</strong>', '<strong>subclasshook</strong>', '<strong>weakref</strong>']
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Again we can see <strong>call</strong> method being available. </p>
+<p>In my next blog I will explain what closures are.</p>                </article>
             </aside><!-- /#featured -->
         <section id="extras" class="body">
                 <div class="blogroll">
