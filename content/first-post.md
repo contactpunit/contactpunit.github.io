@@ -56,6 +56,6 @@ Lets check for custom useless class we created
 >>> 
 ```
 
-Again we can see __call__ method being available. 
+Again we can see `__call__` method being available. 
 
 In my next blog I will explain what closures are.
