@@ -33,6 +33,6 @@ square with length 10
 
 One thing to note how issubclass is related to isinstance as below:
 
-```
+```python
 isinstance(s, Square) is same as issubclass(s.__class__, Square)
 ```
