@@ -1,5 +1,7 @@
 title: Decorator Pre-requisites
 date: 2020-05-10 15:45
+Category: Python
+Tags: Python
 
 ![So Schmexy][my_sweet_photo]
 
