@@ -1,5 +1,5 @@
 title: Interesting Callables in Python 
-date: 2020-05-12 15:45
+date: 2020-05-12 11:30 
 author: Punit Jain
 Category: Python
 
