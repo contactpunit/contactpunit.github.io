@@ -1,6 +1,6 @@
-title: Concepts you should know, to understand Decorators well
-date: 2020-05-10 15:45
-author: Punit Jain
+Title: Concepts you should know, to understand Decorators well
+Date: 2020-05-10 15:45
+Author: Punit Jain
 Category: Python
 Tags: Python
 
