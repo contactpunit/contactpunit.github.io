@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>issubclass and isinstance</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="My Tech Blogs Atom Feed" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">My Tech Blogs </a></h1>
+                <nav><ul>
+                    <li><a href="/pages/decorator-pre-requisites.html">Decorator Pre-requisites</a></li>
+                    <li><a href="/pages/interesting-callables-in-python.html">Interesting Callables in Python</a></li>
+                    <li><a href="/pages/concepts-you-should-know-to-understand-decorators-well.html">Concepts you should know, to understand Decorators well</a></li>
+                    <li class="active"><a href="/pages/issubclass-and-isinstance.html">issubclass and isinstance</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+    <h1 class="entry-title">issubclass and isinstance</h1>
+    
+    <h1>Relation between issubclass and isinstance</h1>
+<p>Normally for type checking most developers use type() function. The result of type function is matched with a hardcoded string. However it is recommended to use issubclass and isinstance to check if object is inherited fromma  particular class or a class has descended from another class.</p>
+<p>Interestingly both issubclass and isinstance are related.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Shape</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+
+<span class="k">class</span> <span class="nc">Square</span><span class="p">(</span><span class="n">Shape</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">args</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;length&#39;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;square with length </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">length</span><span class="si">}</span><span class="s1">&#39;</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="n">Square</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span>
+<span class="n">square</span> <span class="k">with</span> <span class="n">length</span> <span class="mi">10</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">Square</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">assert</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">Square</span><span class="p">,</span> <span class="n">Shape</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>One thing to note how issubclass is related to isinstance as below:</p>
+<div class="highlight"><pre><span></span><code><span class="err">isinstance(s, Square) is same as issubclass(s.__class__, Square)</span>
+</code></pre></div>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
