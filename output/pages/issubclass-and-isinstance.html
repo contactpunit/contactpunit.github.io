@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
+
+
+    <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="My Tech Blogs Atom">
+
+
+
+
+
+    <meta name="author" content="Punit Jain" />
+    <meta name="description" content="" />
+<meta property="og:site_name" content="My Tech Blogs"/>
+<meta property="og:type" content="blog"/>
+<meta property="og:title" content="My Tech Blogs"/>
+<meta property="og:description" content=""/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content=""/>
+
+  <title>My Tech Blogs &ndash; issubclass and isinstance</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="">
+        <img src="/theme/img/profile.png" alt="" title="">
+      </a>
+      <h1><a href=""></a></h1>
+
+
+      <nav>
+        <ul class="list">
+          <li><a href="/pages/.html#"></a></li>
+          <li><a href="/pages/concepts-you-should-know-to-understand-decorators-well.html#concepts-you-should-know-to-understand-decorators-well">Concepts you should know, to understand Decorators well</a></li>
+          <li><a href="/pages/decorator-pre-requisites.html#decorator-pre-requisites">Decorator Pre-requisites</a></li>
+          <li><a href="/pages/interesting-callables-in-python.html#interesting-callables-in-python">Interesting Callables in Python</a></li>
+          <li><a href="/pages/issubclass-and-isinstance.html#issubclass-and-isinstance">issubclass and isinstance</a></li>
+
+          <li><a href="http://getpelican.com/" target="_blank">Pelican</a></li>
+          <li><a href="http://python.org/" target="_blank">Python.org</a></li>
+          <li><a href="http://jinja.pocoo.org/" target="_blank">Jinja2</a></li>
+          <li><a href="#" target="_blank">You can modify those links in your config file</a></li>
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-You can add links in your config file" href="#" target="_blank"><i class="fa fa-You can add links in your config file"></i></a></li>
+        <li><a class="sc-Another social link" href="#" target="_blank"><i class="fa fa-Another social link"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+
+<article class="single">
+  <header>
+    
+    <h1 id="issubclass-and-isinstance">issubclass and isinstance</h1>
+  </header>
+  <div>
+<h1>Relation between issubclass and isinstance</h1>
+<p>Normally for type checking most developers use type() function. The result of type function is matched with a hardcoded string. However it is recommended to use issubclass and isinstance to check if object is inherited fromma  particular class or a class has descended from another class.</p>
+<p>Interestingly both issubclass and isinstance are related.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Shape</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+
+<span class="k">class</span> <span class="nc">Square</span><span class="p">(</span><span class="n">Shape</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">args</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;length&#39;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;square with length </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">length</span><span class="si">}</span><span class="s1">&#39;</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="n">Square</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span>
+<span class="n">square</span> <span class="k">with</span> <span class="n">length</span> <span class="mi">10</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">Square</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">assert</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">Square</span><span class="p">,</span> <span class="n">Shape</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>One thing to note how issubclass is related to isinstance as below:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">isinstance</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">Square</span><span class="p">)</span> <span class="ow">is</span> <span class="n">same</span> <span class="k">as</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="vm">__class__</span><span class="p">,</span> <span class="n">Square</span><span class="p">)</span>
+</code></pre></div>  </div>
+</article>
+
+    <footer>
+<p>&copy;  </p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " My Tech Blogs ",
+  "url" : "",
+  "image": "",
+  "description": ""
+}
+</script>
+
+</body>
+</html>

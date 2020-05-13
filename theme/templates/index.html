@@ -1,36 +1,67 @@
 {% extends "base.html" %}
+
 {% block content %}
 
-{% if articles %}
-{% for article in (articles_page.object_list if articles_page else articles) %}
-<div class='article'>
-	<h2>{{ article.title }}</h2>
-	<div class="well small">{% include "metadata.html" %}</div>
-	<div class="summary">{{ article.summary }} <a class="btn primary xsmall" href="{{ SITEURL }}/{{ article.url }}">more…</a>
-	</div>
-</div>	
-{% endfor %}
-{%endif%}
-
-{% if articles_page and articles_paginator.num_pages > 1 %}
-<div class="pagination">
-<ul>
-	{% if articles_page.has_previous() %}
-		{% set num = articles_page.previous_page_number() %}
-		<li class="prev"><a href="{{ SITEURL }}/{{ page_name }}{{ num if num > 1 else '' }}.html">&larr; Previous</a></li>
-	{% else %}
-		<li class="prev disabled"><a href="#">&larr; Previous</a></li>
-	{% endif %}
-	{% for num in range( 1, 1 + articles_paginator.num_pages ) %}
-		<li class="{{ 'active' if num == articles_page.number else '' }}"><a href="{{ SITEURL }}/{{ page_name }}{{ num if num > 1 else '' }}.html">{{ num }}</a></li>
-	{% endfor %}
-	{% if articles_page.has_next() %}
-		<li class="next"><a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html">Next &rarr;</a></li>
-	{% else %}
-		<li class="next disabled"><a href="#">&rarr; Next</a></li>
-	{% endif %}
-</ul>
-</div>
+{% if GOOGLE_ADSENSE and GOOGLE_ADSENSE.ads.index_top %}
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <ins class="adsbygoogle ads-responsive"
+       data-ad-client="{{ GOOGLE_ADSENSE.ca_id }}"
+       data-ad-slot="{{ GOOGLE_ADSENSE.ads.index_top }}"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
 {% endif %}
+
+{% for article in articles_page.object_list %}
+<article>
+  <header>
+    <h2><a href="{{ SITEURL }}/{{ article.url }}{% if not DISABLE_URL_HASH %}#{{ article.slug }}{% endif %}">{{ article.title }}</a></h2>
+    <p>
+      {{ _('Posted on %(when)s in %(category)s',
+           when=article.locale_date,
+           category='<a href="%s/%s">%s</a>'|format(SITEURL, article.category.url, article.category)|safe) }}
+
+      {% if article.tags and not HOME_HIDE_TAGS %}
+          &#8226; {{ _('Tagged with') }}
+          {% for tag in article.tags %}
+              <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% if not loop.last %},{% endif %}
+          {% endfor %}
+      {% endif %}
+
+      {% if 'post_stats' in PLUGINS %}
+        &#8226; {{ article.stats['read_mins'] }} min read
+      {% endif %}
+    </p>
+  </header>
+  <div>
+    {% if summarise or article.metadata['summary'] or SUMMARY_MAX_LENGTH %}
+      {% if  article.featured_image %}
+        <img src="{{ article.featured_image }}">
+      {% endif %}
+      {{ article.summary }}
+      <br>
+      <a class="btn" href="{{ SITEURL }}/{{ article.url }}{% if not DISABLE_URL_HASH %}#{{ article.slug }}{% endif %}">{{ _('Continue reading') }}</a>
+    {% else %}
+      {{ article.content }}
+    {% endif %}
+  </div>
+  {% if not loop.last %}
+  <hr />
+  {% endif %}
+</article>
+{% endfor %}
+
+{% include "partial/pagination.html" %}
+
+{% if GOOGLE_ADSENSE and GOOGLE_ADSENSE.ads.index_bottom %}
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <ins class="adsbygoogle ads-responsive"
+       data-ad-client="{{ GOOGLE_ADSENSE.ca_id }}"
+       data-ad-slot="{{ GOOGLE_ADSENSE.ads.index_bottom }}"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+{% endif %}
+
 
 {% endblock %}
