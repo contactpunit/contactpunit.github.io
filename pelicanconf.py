@@ -7,7 +7,6 @@ SITENAME = 'My Tech Blogs'
 SITEURL = ''
 SITETITLE = 'Punit Jain'
 SITESUBTITLE = 'Ideas and Thoughts'
-PATH = 'content'
 SITEMAP = {
     'format': 'xml',
     'priorities': {
@@ -75,6 +74,5 @@ DEFAULT_PAGINATION = 10
 DISPLAY_PAGES_ON_MENU = False
 DISPLAY_CATEGORIES_ON_MENU = True
 USE_FOLDER_AS_CATEGORY = True 
-PATH = 'content'
 PAGE_PATHS = ['pages',]
 MENUITEMS = ()
