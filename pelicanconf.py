@@ -11,7 +11,6 @@ PATH = 'content'
 TIMEZONE = 'Asia/Kolkata'
 
 DEFAULT_LANG = 'en'
-THEME = './theme'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
@@ -38,8 +37,5 @@ DISPLAY_PAGES_ON_MENU = False
 DISPLAY_CATEGORIES_ON_MENU = True
 USE_FOLDER_AS_CATEGORY = True 
 PATH = 'content'
-ARTICLE_PATHS = ['articles',]
 PAGE_PATHS = ['pages',]
-MENUITEMS = (
-    ('About', '/pages/about.html')
-)
+MENUITEMS = ()
