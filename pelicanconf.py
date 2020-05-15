@@ -10,6 +10,12 @@ PATH = 'content'
 
 TIMEZONE = 'Asia/Kolkata'
 
+THEME = 'themes/Flex'
+
+PLUGIN_PATHS = ['./pelican-plugins']
+
+PLUGINS = ['sitemap', 'post_stats', 'feed_summary']
+
 DEFAULT_LANG = 'en'
 
 # Feed generation is usually not desired when developing
