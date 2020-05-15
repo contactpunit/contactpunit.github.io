@@ -71,8 +71,3 @@ DEFAULT_PAGINATION = 10
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
-DISPLAY_PAGES_ON_MENU = False
-DISPLAY_CATEGORIES_ON_MENU = True
-USE_FOLDER_AS_CATEGORY = True 
-PAGE_PATHS = ['pages',]
-MENUITEMS = ()
