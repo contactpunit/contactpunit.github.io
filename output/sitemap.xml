@@ -5,35 +5,35 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/</loc>
-<lastmod>2020-05-16T07:58:10-00:00</lastmod>
+<lastmod>2020-05-16T08:02:14-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
 
 <url>
 <loc>/tags.html</loc>
-<lastmod>2020-05-16T07:58:10-00:00</lastmod>
+<lastmod>2020-05-16T08:02:14-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
 
 <url>
 <loc>/categories.html</loc>
-<lastmod>2020-05-16T07:58:10-00:00</lastmod>
+<lastmod>2020-05-16T08:02:14-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
 
 <url>
 <loc>/authors.html</loc>
-<lastmod>2020-05-16T07:58:10-00:00</lastmod>
+<lastmod>2020-05-16T08:02:14-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
 
 <url>
 <loc>/archives.html</loc>
-<lastmod>2020-05-16T07:58:10-00:00</lastmod>
+<lastmod>2020-05-16T08:02:14-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
@@ -60,8 +60,43 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>/2020/05/issubclass-and-isinstance/</loc>
+<lastmod>2020-05-12T16:00:00+05:30</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.6</priority>
+</url>
+
+<url>
+<loc>/2020/05/interesting-callables-in-python/</loc>
+<lastmod>2020-05-12T11:30:00+05:30</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.6</priority>
+</url>
+
+<url>
+<loc>/2020/05/concepts-you-should-know-to-understand-decorators-well/</loc>
+<lastmod>2020-05-10T15:45:00+05:30</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.6</priority>
+</url>
+
+<url>
+<loc>/2020/05/decorator-pre-requisites/</loc>
+<lastmod>2020-05-10T15:45:00+05:30</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.6</priority>
+</url>
+
+<url>
 <loc>/category/blog.html</loc>
 <lastmod>2020-05-15T06:00:00+05:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.6</priority>
+</url>
+
+<url>
+<loc>/category/python.html</loc>
+<lastmod>2020-05-12T16:00:00+05:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>

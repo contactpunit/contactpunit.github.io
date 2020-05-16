@@ -1,6 +1,11 @@
-title: Decorator Pre-requisites
+title: Decorators
 date: 2020-05-10 15:45
 Category: Python
+Slug: Decorators
+Summary: Understanding Decorators.
+Tags: Python
+Authors: Punit Jain
+Status: published
 
 ![So Schmexy][my_sweet_photo]
 
