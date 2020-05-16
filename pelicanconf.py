@@ -7,7 +7,7 @@ SITENAME = 'My Tech Blogs'
 SITEURL = ''
 SITETITLE = 'Punit Jain'
 SITESUBTITLE = 'Ideas and Thoughts'
-SITELOGO = '/images/profile.png'
+SITELOGO = 'images/profile.png'
 
 SITEMAP = {
     'format': 'xml',
