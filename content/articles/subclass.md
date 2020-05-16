@@ -2,6 +2,10 @@ title: issubclass and isinstance
 date: 2020-05-12 16:00
 author: Punit Jain
 Category: Python
+Slug: Relation between issubclass and isinstance
+Summary: issubclass and isinstance 
+Tags: Python
+Status: published
 
 # Relation between issubclass and isinstance
 

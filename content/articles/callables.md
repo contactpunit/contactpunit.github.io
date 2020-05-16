@@ -2,6 +2,11 @@ title: Interesting Callables in Python
 date: 2020-05-12 11:30 
 author: Punit Jain
 Category: Python
+Slug: Interesting Callables in Python
+Summary: Callables you should know
+Tags: Python
+Authors: Punit Jain
+Status: published
 
 # Callables you should know
 
