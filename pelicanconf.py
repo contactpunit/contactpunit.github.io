@@ -5,7 +5,9 @@ from __future__ import unicode_literals
 AUTHOR = 'Punit Jain'
 SITENAME = 'My Tech Blogs'
 SITEURL = ''
+SITETITLE = 'Punit Jain'
 SITESUBTITLE = 'Ideas and Thoughts'
+
 SITEMAP = {
     'format': 'xml',
     'priorities': {
@@ -19,6 +21,7 @@ SITEMAP = {
         'pages': 'monthly',
     }
 }
+
 SOCIAL = (
     ('github', 'https://github.com/contactpunit'),
     ('envelope', 'mailto:contactpunitjain@gmail.com'),
@@ -64,14 +67,9 @@ LINKS = (('Pelican', 'http://getpelican.com/'),
          ('Jinja2', 'http://jinja.pocoo.org/'),
          ('You can modify those links in your config file', '#'),)
 
-# Social widget
-SOCIAL = (('You can add links in your config file', '#'),
-          ('Another social link', '#'),)
-
 DEFAULT_PAGINATION = 5
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
 STATIC_PATHS = ['img', 'pdf']
-
 
