@@ -2,12 +2,12 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
-#AUTHOR = 'Punit Jain'
+AUTHOR = 'Punit Jain'
 SITENAME = 'My Tech Blogs'
 SITEURL = ''
 SITETITLE = 'Punit Jain'
 SITESUBTITLE = 'Ideas and Thoughts'
-SITELOGO = 'images/profile.png'
+SITELOGO = '/images/profile.png'
 
 SITEMAP = {
     'format': 'xml',
