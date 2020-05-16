@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="/theme/pygments/friendly.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
+
+
+
+
+
+
+
+<meta name="author" content="Punit Jain" />
+<meta name="description" content="Pre-requisites in understanding Decorators" />
+<meta name="keywords" content="Python">
+
+<meta property="og:site_name" content="My Tech Blogs"/>
+<meta property="og:title" content="Concepts you should know, to understand Decorators well"/>
+<meta property="og:description" content="Pre-requisites in understanding Decorators"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="/2020/05/Concepts you should know, to understand Decorators well/"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-05-10 15:45:00+05:30"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="/author/punit-jain.html">
+<meta property="article:section" content="Python"/>
+<meta property="article:tag" content="Python"/>
+<meta property="og:image" content="">
+
+  <title>My Tech Blogs &ndash; Concepts you should know, to understand Decorators well</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="">
+        <img src="/theme/img/profile.png" alt="Punit Jain" title="Punit Jain">
+      </a>
+      <h1><a href="">Punit Jain</a></h1>
+
+<p>Ideas and Thoughts</p>
+      <nav>
+        <ul class="list">
+          <li><a href="/about/#about">About</a></li>
+          <li><a href="/contact/#contact">Contact</a></li>
+
+          <li><a href="http://getpelican.com/" target="_blank">Pelican</a></li>
+          <li><a href="http://python.org/" target="_blank">Python.org</a></li>
+          <li><a href="http://jinja.pocoo.org/" target="_blank">Jinja2</a></li>
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-github" href="https://github.com/contactpunit" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-envelope" href="mailto:contactpunitjain@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a></li>
+        <li><a class="sc-linkedin" href="https://np.linkedin.com/in/punit-jain-25302823" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+    <nav>
+      <a href="">    Home
+</a>
+
+      <a href="/archives">Archives</a>
+      <a href="/categories">Categories</a>
+      <a href="/tags">Tags</a>
+
+
+    </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="Concepts you should know, to understand Decorators well">Concepts you should know, to understand Decorators well</h1>
+    <p>
+          Posted on Sun 10 May 2020 in <a href="/category/python.html">Python</a>
+
+
+        &#8226; 2 min read
+    </p>
+  </header>
+
+
+  <div>
+    <h1>Pre-requisites in understanding Decorators</h1>
+<p>In order to understand what decorators are, you should understand below concepts which are centric to decorators.</p>
+<ol>
+<li>Callables</li>
+<li>Closures</li>
+</ol>
+<h1>Callables</h1>
+<p>In python everything is an object. An object is callable, if it can be called like a function/method. The easiest way to check if an object can be called is by passing object to built-in callable function and get a return value as True. Lets take few examples:</p>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">callable</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="kc">False</span>
+</code></pre></div>
+
+
+<p>x is a variable and not a callable.No surprise here.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">print_name</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Good Morning </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">callable</span><span class="p">(</span><span class="n">print_name</span><span class="p">))</span>
+<span class="kc">True</span>
+</code></pre></div>
+
+
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Demo</span><span class="p">:</span>
+  <span class="k">pass</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">callable</span><span class="p">(</span><span class="n">Demo</span><span class="p">))</span>
+<span class="kc">True</span>
+</code></pre></div>
+
+
+<p>Do you notice both function and class return True and are callable ? What makes them callable.
+Well there is a special dunder method which is invoked when a function or a class is called.
+This special method is <code>__call__</code>. This means a callable object do have <code>__call__</code> method defined underlying.</p>
+<p>Lets check ourselves:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">dir</span><span class="p">(</span><span class="n">print_name</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">&#39;__annotations__&#39;</span><span class="p">,</span> <span class="s1">&#39;__call__&#39;</span><span class="p">,</span> <span class="s1">&#39;__class__&#39;</span><span class="p">,</span> <span class="s1">&#39;__closure__&#39;</span><span class="p">,</span> <span class="s1">&#39;__code__&#39;</span><span class="p">,</span> <span class="s1">&#39;__defaults__&#39;</span><span class="p">,</span> <span class="s1">&#39;__delattr__&#39;</span><span class="p">,</span> <span class="s1">&#39;__dict__&#39;</span><span class="p">,</span> <span class="s1">&#39;__dir__&#39;</span><span class="p">,</span> <span class="s1">&#39;__doc__&#39;</span><span class="p">,</span> <span class="s1">&#39;__eq__&#39;</span><span class="p">,</span> <span class="s1">&#39;__format__&#39;</span><span class="p">,</span> <span class="s1">&#39;__ge__&#39;</span><span class="p">,</span> <span class="s1">&#39;__get__&#39;</span><span class="p">,</span> <span class="s1">&#39;__getattribute__&#39;</span><span class="p">,</span> <span class="s1">&#39;__globals__&#39;</span><span class="p">,</span> <span class="s1">&#39;__gt__&#39;</span><span class="p">,</span> <span class="s1">&#39;__hash__&#39;</span><span class="p">,</span> <span class="s1">&#39;__init__&#39;</span><span class="p">,</span> <span class="s1">&#39;__init_subclass__&#39;</span><span class="p">,</span> <span class="s1">&#39;__kwdefaults__&#39;</span><span class="p">,</span> <span class="s1">&#39;__le__&#39;</span><span class="p">,</span> <span class="s1">&#39;__lt__&#39;</span><span class="p">,</span> <span class="s1">&#39;__module__&#39;</span><span class="p">,</span> <span class="s1">&#39;__name__&#39;</span><span class="p">,</span> <span class="s1">&#39;__ne__&#39;</span><span class="p">,</span> <span class="s1">&#39;__new__&#39;</span><span class="p">,</span> <span class="s1">&#39;__qualname__&#39;</span><span class="p">,</span> <span class="s1">&#39;__reduce__&#39;</span><span class="p">,</span> <span class="s1">&#39;__reduce_ex__&#39;</span><span class="p">,</span> <span class="s1">&#39;__repr__&#39;</span><span class="p">,</span> <span class="s1">&#39;__setattr__&#39;</span><span class="p">,</span> <span class="s1">&#39;__sizeof__&#39;</span><span class="p">,</span> <span class="s1">&#39;__str__&#39;</span><span class="p">,</span> <span class="s1">&#39;__subclasshook__&#39;</span><span class="p">]</span>
+</code></pre></div>
+
+
+<p>Do you see <strong>call</strong> method defined for function class ?</p>
+<p>Lets check for custom useless class we created</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">dir</span><span class="p">(</span><span class="n">Demo</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">&#39;__class__&#39;</span><span class="p">,</span> <span class="s1">&#39;__delattr__&#39;</span><span class="p">,</span> <span class="s1">&#39;__dict__&#39;</span><span class="p">,</span> <span class="s1">&#39;__dir__&#39;</span><span class="p">,</span> <span class="s1">&#39;__doc__&#39;</span><span class="p">,</span> <span class="s1">&#39;__eq__&#39;</span><span class="p">,</span> <span class="s1">&#39;__format__&#39;</span><span class="p">,</span> <span class="s1">&#39;__ge__&#39;</span><span class="p">,</span> <span class="s1">&#39;__getattribute__&#39;</span><span class="p">,</span> <span class="s1">&#39;__gt__&#39;</span><span class="p">,</span> <span class="s1">&#39;__hash__&#39;</span><span class="p">,</span> <span class="s1">&#39;__init__&#39;</span><span class="p">,</span> <span class="s1">&#39;__init_subclass__&#39;</span><span class="p">,</span> <span class="s1">&#39;__le__&#39;</span><span class="p">,</span> <span class="s1">&#39;__lt__&#39;</span><span class="p">,</span> <span class="s1">&#39;__module__&#39;</span><span class="p">,</span> <span class="s1">&#39;__ne__&#39;</span><span class="p">,</span> <span class="s1">&#39;__new__&#39;</span><span class="p">,</span> <span class="s1">&#39;__reduce__&#39;</span><span class="p">,</span> <span class="s1">&#39;__reduce_ex__&#39;</span><span class="p">,</span> <span class="s1">&#39;__repr__&#39;</span><span class="p">,</span> <span class="s1">&#39;__setattr__&#39;</span><span class="p">,</span> <span class="s1">&#39;__sizeof__&#39;</span><span class="p">,</span> <span class="s1">&#39;__str__&#39;</span><span class="p">,</span> <span class="s1">&#39;__subclasshook__&#39;</span><span class="p">,</span> <span class="s1">&#39;__weakref__&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> 
+</code></pre></div>
+
+
+<p>Again we can see <code>__call__</code> method being available. </p>
+<p>In my next blog I will explain what closures are.</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="/tag/python.html">Python</a>
+    </p>
+  </div>
+
+
+
+
+
+</article>
+
+    <footer>
+<p>&copy;  </p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " My Tech Blogs ",
+  "url" : "",
+  "image": "",
+  "description": ""
+}
+</script>
+
+</body>
+</html>
