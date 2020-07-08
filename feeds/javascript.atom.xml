@@ -72,11 +72,11 @@ function fullname(firstname, lastname) {
 &lt;blockquote&gt;
 &lt;blockquote&gt;
 &lt;p&gt;punit jain
-```
-Here by using strict we are avoiding any surprises that could happen.&lt;/p&gt;
+```&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;/blockquote&gt;
-&lt;/blockquote&gt;</content><category term="Javascript"></category><category term="Javascript"></category></entry><entry><title>Functions in Javascript</title><link href="/2020/06/Functions%20in%20Javascript/" rel="alternate"></link><published>2020-06-15T12:00:00+05:30</published><updated>2020-06-15T12:00:00+05:30</updated><author><name>Punit Jain</name></author><id>tag:None,2020-06-15:/2020/06/Functions in Javascript/</id><summary type="html">&lt;p&gt;Functions in Javascript&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Functions are first class citizens&lt;/h1&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Here by using strict we are avoiding any surprises that could happen.&lt;/p&gt;</content><category term="Javascript"></category><category term="Javascript"></category></entry><entry><title>Functions in Javascript</title><link href="/2020/06/Functions%20in%20Javascript/" rel="alternate"></link><published>2020-06-15T12:00:00+05:30</published><updated>2020-06-15T12:00:00+05:30</updated><author><name>Punit Jain</name></author><id>tag:None,2020-06-15:/2020/06/Functions in Javascript/</id><summary type="html">&lt;p&gt;Functions in Javascript&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Functions are first class citizens&lt;/h1&gt;
 &lt;p&gt;Functions are first class citizens in Javascript just like Python. What does this mean ?
 Well this means functions should obey below rules to be treated as first clas citizens:&lt;/p&gt;
 &lt;ul&gt;
