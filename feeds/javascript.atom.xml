@@ -1,5 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>My Tech Blogs - Javascript</title><link href="/" rel="alternate"></link><link href="/feeds/javascript.atom.xml" rel="self"></link><id>/</id><updated>2020-06-10T10:00:00+05:30</updated><subtitle>Ideas and Thoughts</subtitle><entry><title>Closures in Javascript</title><link href="/2020/06/Closures%20in%20Javascript/" rel="alternate"></link><published>2020-06-10T10:00:00+05:30</published><updated>2020-06-10T10:00:00+05:30</updated><author><name>Punit Jain</name></author><id>tag:None,2020-06-10:/2020/06/Closures in Javascript/</id><summary type="html">&lt;p&gt;Closures in Javascript&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Closures&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>My Tech Blogs - Javascript</title><link href="/" rel="alternate"></link><link href="/feeds/javascript.atom.xml" rel="self"></link><id>/</id><updated>2020-06-16T14:10:00+05:30</updated><subtitle>Ideas and Thoughts</subtitle><entry><title>use strict in Javascript</title><link href="/2020/06/strict%20in%20Javascript/" rel="alternate"></link><published>2020-06-16T14:10:00+05:30</published><updated>2020-06-16T14:10:00+05:30</updated><author><name>Punit Jain</name></author><id>tag:None,2020-06-16:/2020/06/strict in Javascript/</id><summary type="html">&lt;p&gt;use strict in Javascript&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Always use strict&lt;/h1&gt;
+&lt;p&gt;It is always recommended to use 'strict' while you create javascript programs to avoid unexpected results.
+Lets see below example to understand one of the use-case:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;fullname&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;firstname&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;lastname&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="nx"&gt;arguments&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;dummy&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;firstname&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39; &amp;#39;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;lastname&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;fullname&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;punit&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;jain&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nx"&gt;punit&lt;/span&gt; &lt;span class="nx"&gt;dummy&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If you see in the above example, the value of lastname has been changed inside the function by overriding value of arguments alias.
+arguments is an alias to the values passed inside a function. You can treat it as an array but they are not array to be precise.
+ Inside this example I am changing value of arguments[1] alias which causes original variable lastname to be changed.&lt;/p&gt;
+&lt;p&gt;This can be avoided by using strict as in example below:&lt;/p&gt;
+&lt;p&gt;```javascript
+"use strict";
+function fullname(firstname, lastname) {
+  arguments[1] = 'dummy';
+  return firstname + ' ' + lastname;
+}&lt;/p&gt;
+&lt;p&gt;console.log(fullname('punit', 'jain'))&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;punit jain
+```
+Here by using strict we are avoiding any surprises that could happen.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;</content><category term="Javascript"></category><category term="Javascript"></category></entry><entry><title>Functions in Javascript</title><link href="/2020/06/Functions%20in%20Javascript/" rel="alternate"></link><published>2020-06-15T12:00:00+05:30</published><updated>2020-06-15T12:00:00+05:30</updated><author><name>Punit Jain</name></author><id>tag:None,2020-06-15:/2020/06/Functions in Javascript/</id><summary type="html">&lt;p&gt;Functions in Javascript&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Functions are first class citizens&lt;/h1&gt;
+&lt;p&gt;Functions are first class citizens in Javascript just like Python. What does this mean ?
+Well this means functions should obey below rules to be treated as first clas citizens:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Functions can be created as literals&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;hello&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Functions can be assigned to variables&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;hello&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Functions can be passed to other functions and can be returned as a return value&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;test&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;hello&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;hello&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;hello&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{};&lt;/span&gt;
+&lt;span class="nx"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;test&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;hello&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Function can be assigned properties&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;f&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{};&lt;/span&gt;
+&lt;span class="nx"&gt;f&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;alternateName&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;demo&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Javascript"></category><category term="Javascript"></category></entry><entry><title>Closures in Javascript</title><link href="/2020/06/Closures%20in%20Javascript/" rel="alternate"></link><published>2020-06-10T10:00:00+05:30</published><updated>2020-06-10T10:00:00+05:30</updated><author><name>Punit Jain</name></author><id>tag:None,2020-06-10:/2020/06/Closures in Javascript/</id><summary type="html">&lt;p&gt;Closures in Javascript&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Closures&lt;/h1&gt;
 &lt;p&gt;Understanding closures is key to understanding scoping in javascript.
 A closure allows a function to access and manipulate variables which are external to that function.
 This helps to call the declared function even after the scope in which it was declared has already gone.&lt;/p&gt;
