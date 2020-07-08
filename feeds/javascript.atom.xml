@@ -61,21 +61,16 @@ Lets see below example to understand one of the use-case:&lt;/p&gt;
 arguments is an alias to the values passed inside a function. You can treat it as an array but they are not array to be precise.
  Inside this example I am changing value of arguments[1] alias which causes original variable lastname to be changed.&lt;/p&gt;
 &lt;p&gt;This can be avoided by using strict as in example below:&lt;/p&gt;
-&lt;p&gt;```javascript
-"use strict";
-function fullname(firstname, lastname) {
-  arguments[1] = 'dummy';
-  return firstname + ' ' + lastname;
-}&lt;/p&gt;
-&lt;p&gt;console.log(fullname('punit', 'jain'));&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;punit jain&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;```&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="s2"&gt;&amp;quot;use strict&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;fullname&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;firstname&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;lastname&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="nx"&gt;arguments&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;dummy&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;firstname&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39; &amp;#39;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;lastname&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;fullname&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;punit&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;jain&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;Here by using strict we are avoiding any surprises that could happen.&lt;/p&gt;</content><category term="Javascript"></category><category term="Javascript"></category></entry><entry><title>Functions in Javascript</title><link href="/2020/06/Functions%20in%20Javascript/" rel="alternate"></link><published>2020-06-15T12:00:00+05:30</published><updated>2020-06-15T12:00:00+05:30</updated><author><name>Punit Jain</name></author><id>tag:None,2020-06-15:/2020/06/Functions in Javascript/</id><summary type="html">&lt;p&gt;Functions in Javascript&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Functions are first class citizens&lt;/h1&gt;
 &lt;p&gt;Functions are first class citizens in Javascript just like Python. What does this mean ?
 Well this means functions should obey below rules to be treated as first clas citizens:&lt;/p&gt;
