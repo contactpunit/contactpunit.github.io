@@ -31,7 +31,7 @@ SOCIAL = (
 
 STATIC_PATHS = ['images', 'extra']
 MAIN_MENU = True
-MENUITEMS = (('Home', '/'),('Archives', '/archives'),('Categories', '/categories'),('Tags', '/tags'))
+MENUITEMS = (('Archives', '/archives'),('Categories', '/categories'),('Tags', '/tags'))
 PYGMENTS_STYLE = 'friendly'
 
 ARTICLE_URL = '{date:%Y}/{date:%m}/{slug}/'
