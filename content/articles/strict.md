@@ -39,4 +39,5 @@ function fullname(firstname, lastname) {
 console.log(fullname('punit', 'jain'))
 >>> punit jain
 ```
+
 Here by using strict we are avoiding any surprises that could happen.
