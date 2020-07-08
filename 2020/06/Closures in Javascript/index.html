@@ -106,7 +106,7 @@ A closure allows a function to access and manipulate variables which are externa
 This helps to call the declared function even after the scope in which it was declared has already gone.</p>
 <p>Lets look different uses of closures with examples below:</p>
 <ul>
-<li>Maintain Private variables</li>
+<li><strong>Maintain Private variables</strong></li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">Counter</span><span class="p">()</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">counts</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -134,7 +134,7 @@ Inside the constructor we define private variable counts whose scope is limited 
 We then define a getter function getCounts which will get the current value of counts.
 Note that closure here allows the count to maintain its state inside the method without letting it be directly accessed.</p>
 <ul>
-<li>Using closures wih callbacks</li>
+<li><strong>Using closures wih callbacks</strong></li>
 </ul>
 <p>Closures can also be used with callbacks. Normally defining a function inside another function creates a closure.
   In such cases inner function frequently accesses the outer function data. Lets understand this with an example.

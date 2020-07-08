@@ -5,7 +5,7 @@ A closure allows a function to access and manipulate variables which are externa
 This helps to call the declared function even after the scope in which it was declared has already gone.&lt;/p&gt;
 &lt;p&gt;Lets look different uses of closures with examples below:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Maintain Private variables&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Maintain Private variables&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;Counter&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
   &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;counts&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
@@ -33,7 +33,7 @@ Inside the constructor we define private variable counts whose scope is limited 
 We then define a getter function getCounts which will get the current value of counts.
 Note that closure here allows the count to maintain its state inside the method without letting it be directly accessed.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Using closures wih callbacks&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Using closures wih callbacks&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Closures can also be used with callbacks. Normally defining a function inside another function creates a closure.
   In such cases inner function frequently accesses the outer function data. Lets understand this with an example.
