@@ -29,7 +29,7 @@ arguments is an alias to the values passed inside a function. You can treat it a
  
  This can be avoided by using strict as in example below:
  
- ```javascript
+```javascript
 "use strict";
 function fullname(firstname, lastname) {
   arguments[1] = 'dummy';
@@ -37,7 +37,6 @@ function fullname(firstname, lastname) {
 }
 
 console.log(fullname('punit', 'jain'));
->>> punit jain
 
 ```
 
