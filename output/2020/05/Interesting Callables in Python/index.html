@@ -16,6 +16,7 @@
   <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
 
 
+    <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="My Tech Blogs Atom">
 
 
 
@@ -36,7 +37,7 @@
 <meta property="article:author" content="/author/punit-jain.html">
 <meta property="article:section" content="Python"/>
 <meta property="article:tag" content="Python"/>
-<meta property="og:image" content="images/profile.png">
+<meta property="og:image" content="/images/profile.png">
 
   <title>My Tech Blogs &ndash; Interesting Callables in Python</title>
 
@@ -45,7 +46,7 @@
   <aside>
     <div>
       <a href="">
-        <img src="images/profile.png" alt="Punit Jain" title="Punit Jain">
+        <img src="/images/profile.png" alt="Punit Jain" title="Punit Jain">
       </a>
       <h1><a href="">Punit Jain</a></h1>
 
@@ -80,6 +81,8 @@
       <a href="/categories">Categories</a>
       <a href="/tags">Tags</a>
 
+      <a href="/feeds/all.atom.xml">    Atom
+</a>
 
     </nav>
 
@@ -104,7 +107,7 @@
 <li>Partials</li>
 </ol>
 <h1>Decorators</h1>
-<p>Simple defned decorators are callables which accept a callable (could be function, class, method, object) and returns back a callable. In mot cases decorators dont modify the original callable which is passed to decorator, rather add functionality, before and after the function.</p>
+<p>Simple defined decorators are callables which accept a callable (could be function, class, method, object) and returns back a callable. In mot cases decorators dont modify the original callable which is passed to decorator, rather add functionality, before and after the function.</p>
 <p>Taking an example:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
 <span class="kn">import</span> <span class="nn">time</span>
@@ -114,12 +117,12 @@
     <span class="nd">@wraps</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Start time </span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">start</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Start time </span><span class="si">{f.__name__}</span><span class="s1">: </span><span class="si">{start}</span><span class="s1">&#39;</span><span class="p">)</span>
         <span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;End time </span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">end</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;End time </span><span class="si">{f.__name__}</span><span class="s1">: </span><span class="si">{end}</span><span class="s1">&#39;</span><span class="p">)</span>
         <span class="n">duration</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Elapsed time </span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">duration</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Elapsed time </span><span class="si">{f.__name__}</span><span class="s1">: </span><span class="si">{duration}</span><span class="s1">&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">duration</span><span class="p">,</span> <span class="n">result</span>
     <span class="k">return</span> <span class="n">wrapper</span>
 
@@ -193,7 +196,7 @@ Lets take an example:</p>
   "@type" : "Blog",
   "name": " My Tech Blogs ",
   "url" : "",
-  "image": "images/profile.png",
+  "image": "/images/profile.png",
   "description": ""
 }
 </script>

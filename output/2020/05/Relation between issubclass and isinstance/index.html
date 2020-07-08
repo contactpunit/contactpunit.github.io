@@ -16,6 +16,7 @@
   <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
 
 
+    <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="My Tech Blogs Atom">
 
 
 
@@ -36,7 +37,7 @@
 <meta property="article:author" content="/author/punit-jain.html">
 <meta property="article:section" content="Python"/>
 <meta property="article:tag" content="Python"/>
-<meta property="og:image" content="images/profile.png">
+<meta property="og:image" content="/images/profile.png">
 
   <title>My Tech Blogs &ndash; issubclass and isinstance</title>
 
@@ -45,7 +46,7 @@
   <aside>
     <div>
       <a href="">
-        <img src="images/profile.png" alt="Punit Jain" title="Punit Jain">
+        <img src="/images/profile.png" alt="Punit Jain" title="Punit Jain">
       </a>
       <h1><a href="">Punit Jain</a></h1>
 
@@ -80,6 +81,8 @@
       <a href="/categories">Categories</a>
       <a href="/tags">Tags</a>
 
+      <a href="/feeds/all.atom.xml">    Atom
+</a>
 
     </nav>
 
@@ -110,7 +113,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;length&#39;</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;square with length </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">length</span><span class="si">}</span><span class="s1">&#39;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;square with length </span><span class="si">{self.length}</span><span class="s1">&#39;</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="n">Square</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">s</span>
@@ -151,7 +154,7 @@
   "@type" : "Blog",
   "name": " My Tech Blogs ",
   "url" : "",
-  "image": "images/profile.png",
+  "image": "/images/profile.png",
   "description": ""
 }
 </script>

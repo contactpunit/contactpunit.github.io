@@ -17,7 +17,7 @@ In our earlier post we already saw what callables are, but did you ever wondered
 
 # Decorators
 
-Simple defned decorators are callables which accept a callable (could be function, class, method, object) and returns back a callable. In mot cases decorators dont modify the original callable which is passed to decorator, rather add functionality, before and after the function.
+Simple defined decorators are callables which accept a callable (could be function, class, method, object) and returns back a callable. In mot cases decorators dont modify the original callable which is passed to decorator, rather add functionality, before and after the function.
 
 Taking an example:
 

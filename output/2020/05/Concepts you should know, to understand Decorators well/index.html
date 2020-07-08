@@ -16,6 +16,7 @@
   <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
 
 
+    <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="My Tech Blogs Atom">
 
 
 
@@ -36,7 +37,7 @@
 <meta property="article:author" content="/author/punit-jain.html">
 <meta property="article:section" content="Python"/>
 <meta property="article:tag" content="Python"/>
-<meta property="og:image" content="images/profile.png">
+<meta property="og:image" content="/images/profile.png">
 
   <title>My Tech Blogs &ndash; Concepts you should know, to understand Decorators well</title>
 
@@ -45,7 +46,7 @@
   <aside>
     <div>
       <a href="">
-        <img src="images/profile.png" alt="Punit Jain" title="Punit Jain">
+        <img src="/images/profile.png" alt="Punit Jain" title="Punit Jain">
       </a>
       <h1><a href="">Punit Jain</a></h1>
 
@@ -80,6 +81,8 @@
       <a href="/categories">Categories</a>
       <a href="/tags">Tags</a>
 
+      <a href="/feeds/all.atom.xml">    Atom
+</a>
 
     </nav>
 
@@ -113,7 +116,7 @@
 
 <p>x is a variable and not a callable.No surprise here.</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">print_name</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Good Morning </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Good Morning </span><span class="si">{name}</span><span class="s1">&#39;</span><span class="p">)</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">callable</span><span class="p">(</span><span class="n">print_name</span><span class="p">))</span>
 <span class="kc">True</span>
@@ -174,7 +177,7 @@ This special method is <code>__call__</code>. This means a callable object do ha
   "@type" : "Blog",
   "name": " My Tech Blogs ",
   "url" : "",
-  "image": "images/profile.png",
+  "image": "/images/profile.png",
   "description": ""
 }
 </script>
