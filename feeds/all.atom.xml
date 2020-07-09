@@ -159,7 +159,79 @@ Note that closure here allows the count to maintain its state inside the method 
 
 
 &lt;p&gt;In the above code inner function has reference to city variable even when the outer function cityLocation is called and long gone.
-The reference to variable helps to modify the variable inside inner function. The variable remains in scope due to closure.&lt;/p&gt;</content><category term="Javascript"></category><category term="Javascript"></category></entry><entry><title>Variable Scoping in Javascript</title><link href="/2020/06/variable%20scoping%20in%20Javascript/" rel="alternate"></link><published>2020-06-02T10:00:00+05:30</published><updated>2020-06-02T10:00:00+05:30</updated><author><name>Punit Jain</name></author><id>tag:None,2020-06-02:/2020/06/variable scoping in Javascript/</id><summary type="html">&lt;p&gt;variable scoping in Javascript&lt;/p&gt;</summary><content type="html">&lt;h1&gt;keywords supported for Variables&lt;/h1&gt;
+The reference to variable helps to modify the variable inside inner function. The variable remains in scope due to closure.&lt;/p&gt;</content><category term="Javascript"></category><category term="Javascript"></category></entry><entry><title>Variable/Function Hoisting in Javascript</title><link href="/2020/06/variable%20Hoisting%20in%20Javascript/" rel="alternate"></link><published>2020-06-08T11:00:00+05:30</published><updated>2020-06-08T11:00:00+05:30</updated><author><name>Punit Jain</name></author><id>tag:None,2020-06-08:/2020/06/variable Hoisting in Javascript/</id><summary type="html">&lt;p&gt;variable/function Hoisting in Javascript&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Variable Hoisting&lt;/h1&gt;
+&lt;p&gt;Variable/Function hoisting is a common term in javascript and important concept to understand flow of program.
+Javascript being a dynamic language, executes statements line by line and jump around using control flow statements.
+However if you notice in javascript, functions can be called prior to declaration.
+This is due to the fact javascript execution happens in 2 phases:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;In first phase, javascript goes through the code and registers all functions and variables in the current lexical environment.&lt;/li&gt;
+&lt;li&gt;In second phase javascript code actually runs and executes statements. In this phase no registration happens.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Lets take an example to understand this is detail:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nx"&gt;func&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;func&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;I am executed&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In the above code func() is referenced before it is declared which is fine as:
+1. In first phase func is added to lexical environment of the program which is global at the moment.
+2. Then in second phase actual execution starts and since reference of func is already available in lexical environment it is executed.&lt;/p&gt;
+&lt;p&gt;This concept is called hoisting. Basically all variables and function declarations are lifted to top of their functional/local scope.
+This excludes function expression.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Hoisting and var&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Variables declared with var are hoisted to the top of enclosing function scope.
+If variable is accessed before declaration, it gets evaluated to undefined.
+lets look by example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;func&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;num&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;variable&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;// =&amp;gt; undefined&lt;/span&gt;
+  &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;variable&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;num&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="nx"&gt;func&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;// =&amp;gt; 3&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Here 'variable' is moved to to of function as a part of hoisting.
+It is then assigned undefined.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Hoisting and let&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;let is also hoisted to top of block. Unlike var, let scope is restricted by block in which it is declared.
+When variable is accessed, which is declared with let, javascript throws 'ReferenceError'.
+Below is an example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;check&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;value&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;variable&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;value&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="c1"&gt;// Throws ReferenceError: variable is not defined&lt;/span&gt;
+    &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;variable&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="kd"&gt;let&lt;/span&gt; &lt;span class="nx"&gt;variable&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;variable&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;// 2 is printed&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="nx"&gt;check&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If you see above 'variable' declared with let is scoped inside if block. So it is moved to top of block as a process of hoisting.
+In declared state let variable cannot be used so raises a ReferenceError. So the best practice is declare let variable and then use it.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Hoisting and const&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;const are also registered at top of the block like let.
+referencing before assignment raises an ReferenceError just like in case of let.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;func&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;num&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+   &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;VALUE&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;// ReferenceError&lt;/span&gt;
+   &lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;VALUE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;num&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="nx"&gt;VALUE&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="nx"&gt;func&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;// =&amp;gt; 4&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Javascript"></category><category term="Javascript"></category></entry><entry><title>Variable Scoping in Javascript</title><link href="/2020/06/variable%20scoping%20in%20Javascript/" rel="alternate"></link><published>2020-06-02T10:00:00+05:30</published><updated>2020-06-02T10:00:00+05:30</updated><author><name>Punit Jain</name></author><id>tag:None,2020-06-02:/2020/06/variable scoping in Javascript/</id><summary type="html">&lt;p&gt;variable scoping in Javascript&lt;/p&gt;</summary><content type="html">&lt;h1&gt;keywords supported for Variables&lt;/h1&gt;
 &lt;p&gt;Javascript supports 3 keywords of variables definition:
 1. const
 2. var
