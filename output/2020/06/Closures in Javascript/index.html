@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="/theme/pygments/friendly.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
+
+
+    <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="My Tech Blogs Atom">
+
+
+
+
+
+<meta name="author" content="Punit Jain" />
+<meta name="description" content="Closures in Javascript" />
+<meta name="keywords" content="Javascript">
+
+<meta property="og:site_name" content="My Tech Blogs"/>
+<meta property="og:title" content="Closures in Javascript"/>
+<meta property="og:description" content="Closures in Javascript"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="/2020/06/Closures in Javascript/"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-06-10 10:00:00+05:30"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="/author/punit-jain.html">
+<meta property="article:section" content="Javascript"/>
+<meta property="article:tag" content="Javascript"/>
+<meta property="og:image" content="/images/profile.png">
+
+  <title>My Tech Blogs &ndash; Closures in Javascript</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="">
+        <img src="/images/profile.png" alt="Punit Jain" title="Punit Jain">
+      </a>
+      <h1><a href="">Punit Jain</a></h1>
+
+<p>Ideas and Thoughts</p>
+      <nav>
+        <ul class="list">
+          <li><a href="/about/#about">About</a></li>
+          <li><a href="/contact/#contact">Contact</a></li>
+
+          <li><a href="http://getpelican.com/" target="_blank">Pelican</a></li>
+          <li><a href="http://python.org/" target="_blank">Python.org</a></li>
+          <li><a href="http://jinja.pocoo.org/" target="_blank">Jinja2</a></li>
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-github" href="https://github.com/contactpunit" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-envelope" href="mailto:contactpunitjain@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a></li>
+        <li><a class="sc-linkedin" href="https://np.linkedin.com/in/punit-jain-25302823" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+    <nav>
+      <a href="">    Home
+</a>
+
+      <a href="/archives">Archives</a>
+      <a href="/categories">Categories</a>
+      <a href="/tags">Tags</a>
+
+      <a href="/feeds/all.atom.xml">    Atom
+</a>
+
+    </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="Closures in Javascript">Closures in Javascript</h1>
+    <p>
+          Posted on Wed 10 June 2020 in <a href="/category/javascript.html">Javascript</a>
+
+
+        &#8226; 2 min read
+    </p>
+  </header>
+
+
+  <div>
+    <h1>Closures</h1>
+<p>Understanding closures is key to understanding scoping in javascript.
+A closure allows a function to access and manipulate variables which are external to that function.
+This helps to call the declared function even after the scope in which it was declared has already gone.</p>
+<p>Lets look different uses of closures with examples below:</p>
+<ul>
+<li><strong>Maintain Private variables</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">Counter</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">counts</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">getCounts</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">counts</span><span class="p">;</span>
+  <span class="p">};</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">incrementValue</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">counts</span><span class="o">++</span><span class="p">;</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">counterObject</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Counter</span><span class="p">();</span>
+<span class="nx">counterObject</span><span class="p">.</span><span class="nx">incrementValue</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">counterObject</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Counter</span><span class="p">();</span>
+<span class="nx">counterObject</span><span class="p">.</span><span class="nx">incrementValue</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">assert</span><span class="p">(</span><span class="nx">counterObject</span><span class="p">.</span><span class="nx">counts</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">assert</span><span class="p">(</span><span class="nx">counterObject</span><span class="p">.</span><span class="nx">getCounts</span><span class="p">()</span> <span class="o">===</span> <span class="mi">1</span><span class="p">);</span>
+<span class="nx">counterObject</span><span class="p">.</span><span class="nx">incrementValue</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">assert</span><span class="p">(</span><span class="nx">counterObject</span><span class="p">.</span><span class="nx">getCounts</span><span class="p">()</span> <span class="o">===</span> <span class="mi">2</span><span class="p">);</span>
+</code></pre></div>
+
+
+<p>If we see the above code, we create a function Counter to act like a constructor.
+Inside the constructor we define private variable counts whose scope is limited to inside the function.
+We then define a getter function getCounts which will get the current value of counts.
+Note that closure here allows the count to maintain its state inside the method without letting it be directly accessed.</p>
+<ul>
+<li><strong>Using closures wih callbacks</strong></li>
+</ul>
+<p>Closures can also be used with callbacks. Normally defining a function inside another function creates a closure.
+  In such cases inner function frequently accesses the outer function data. Lets understand this with an example.
+  Imagine you are defining a script element inside DOM as below:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">cityLocation</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">city</span> <span class="o">=</span> <span class="s1">&#39;Delhi&#39;</span><span class="p">;</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="nx">get</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">city</span><span class="p">);</span> <span class="p">},</span>
+        <span class="nx">set</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">newcity</span><span class="p">)</span> <span class="p">{</span><span class="nx">city</span> <span class="o">=</span> <span class="nx">newcity</span><span class="p">;</span> <span class="p">}</span>
+    <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">location</span> <span class="o">=</span> <span class="nx">cityLocation</span><span class="p">();</span>
+<span class="nx">location</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
+<span class="nx">location</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;pune&#39;</span><span class="p">);</span>
+<span class="nx">location</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
+</code></pre></div>
+
+
+<p>In the above code inner function has reference to city variable even when the outer function cityLocation is called and long gone.
+The reference to variable helps to modify the variable inside inner function. The variable remains in scope due to closure.</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="/tag/javascript.html">Javascript</a>
+    </p>
+  </div>
+
+
+
+
+
+</article>
+
+    <footer>
+<p>&copy;  </p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " My Tech Blogs ",
+  "url" : "",
+  "image": "/images/profile.png",
+  "description": ""
+}
+</script>
+
+</body>
+</html>

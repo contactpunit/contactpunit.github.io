@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="/theme/pygments/friendly.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
+
+
+    <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="My Tech Blogs Atom">
+
+
+
+
+
+<meta name="author" content="Punit Jain" />
+<meta name="description" content="Function Invocations in Javascript" />
+<meta name="keywords" content="Javascript">
+
+<meta property="og:site_name" content="My Tech Blogs"/>
+<meta property="og:title" content="Function Invocations in Javascript"/>
+<meta property="og:description" content="Function Invocations in Javascript"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="/2020/06/Function Invocations in Javascript/"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-06-18 12:00:00+05:30"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="/author/punit-jain.html">
+<meta property="article:section" content="Javascript"/>
+<meta property="article:tag" content="Javascript"/>
+<meta property="og:image" content="/images/profile.png">
+
+  <title>My Tech Blogs &ndash; Function Invocations in Javascript</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="">
+        <img src="/images/profile.png" alt="Punit Jain" title="Punit Jain">
+      </a>
+      <h1><a href="">Punit Jain</a></h1>
+
+<p>Ideas and Thoughts</p>
+      <nav>
+        <ul class="list">
+          <li><a href="/about/#about">About</a></li>
+          <li><a href="/contact/#contact">Contact</a></li>
+
+          <li><a href="http://getpelican.com/" target="_blank">Pelican</a></li>
+          <li><a href="http://python.org/" target="_blank">Python.org</a></li>
+          <li><a href="http://jinja.pocoo.org/" target="_blank">Jinja2</a></li>
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-github" href="https://github.com/contactpunit" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-envelope" href="mailto:contactpunitjain@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a></li>
+        <li><a class="sc-linkedin" href="https://np.linkedin.com/in/punit-jain-25302823" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+    <nav>
+      <a href="">    Home
+</a>
+
+      <a href="/archives">Archives</a>
+      <a href="/categories">Categories</a>
+      <a href="/tags">Tags</a>
+
+      <a href="/feeds/all.atom.xml">    Atom
+</a>
+
+    </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="Function Invocations in Javascript">Function Invocations in Javascript</h1>
+    <p>
+          Posted on Thu 18 June 2020 in <a href="/category/javascript.html">Javascript</a>
+
+
+        &#8226; 1 min read
+    </p>
+  </header>
+
+
+  <div>
+    <h1>Different ways to invoke functions</h1>
+<p>There are various ways to invoke functions in javacript:</p>
+<ul>
+<li><strong>As a function</strong></li>
+</ul>
+<p>Function can be invoked as a function. This is what common way to use functions:</p>
+<p>a. As a function using function declaration</p>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">test</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="nx">test</span><span class="p">(</span><span class="s1">&#39;punit&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>b. As a function expression</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">who</span><span class="p">)</span> <span class="p">{</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">who</span><span class="p">)})(</span><span class="s1">&#39;punit&#39;</span><span class="p">);</span>
+</code></pre></div>
+
+
+<ul>
+<li><strong>As a method</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">test</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">demo</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;hello punit&#39;</span><span class="p">)};</span>
+<span class="p">};</span>
+
+<span class="nx">test</span><span class="p">.</span><span class="nx">demo</span><span class="p">()</span>
+</code></pre></div>
+
+
+<ul>
+<li><strong>As a constructor</strong></li>
+</ul>
+<p>Function can be invoked as a constructor to create a new object by using keyword new.
+Example is as below:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">Demo</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">obj</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Demo</span><span class="p">();</span>
+</code></pre></div>
+
+
+<p>Note here function name is starting with a capital letter unlike in while calling as a regular function where we use a camelcase.</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="/tag/javascript.html">Javascript</a>
+    </p>
+  </div>
+
+
+
+
+
+</article>
+
+    <footer>
+<p>&copy;  </p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " My Tech Blogs ",
+  "url" : "",
+  "image": "/images/profile.png",
+  "description": ""
+}
+</script>
+
+</body>
+</html>

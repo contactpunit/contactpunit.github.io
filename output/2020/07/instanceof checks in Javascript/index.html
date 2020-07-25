@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="/theme/pygments/friendly.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
+
+
+    <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="My Tech Blogs Atom">
+
+
+
+
+
+<meta name="author" content="Punit Jain" />
+<meta name="description" content="instanceof checks in Javascript" />
+<meta name="keywords" content="Javascript">
+
+<meta property="og:site_name" content="My Tech Blogs"/>
+<meta property="og:title" content="instanceof checks in Javascript"/>
+<meta property="og:description" content="instanceof checks in Javascript"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="/2020/07/instanceof checks in Javascript/"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-07-04 13:20:00+05:30"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="/author/punit-jain.html">
+<meta property="article:section" content="Javascript"/>
+<meta property="article:tag" content="Javascript"/>
+<meta property="og:image" content="/images/profile.png">
+
+  <title>My Tech Blogs &ndash; instanceof checks in Javascript</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="">
+        <img src="/images/profile.png" alt="Punit Jain" title="Punit Jain">
+      </a>
+      <h1><a href="">Punit Jain</a></h1>
+
+<p>Ideas and Thoughts</p>
+      <nav>
+        <ul class="list">
+          <li><a href="/about/#about">About</a></li>
+          <li><a href="/contact/#contact">Contact</a></li>
+
+          <li><a href="http://getpelican.com/" target="_blank">Pelican</a></li>
+          <li><a href="http://python.org/" target="_blank">Python.org</a></li>
+          <li><a href="http://jinja.pocoo.org/" target="_blank">Jinja2</a></li>
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-github" href="https://github.com/contactpunit" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-envelope" href="mailto:contactpunitjain@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a></li>
+        <li><a class="sc-linkedin" href="https://np.linkedin.com/in/punit-jain-25302823" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+    <nav>
+      <a href="">    Home
+</a>
+
+      <a href="/archives">Archives</a>
+      <a href="/categories">Categories</a>
+      <a href="/tags">Tags</a>
+
+      <a href="/feeds/all.atom.xml">    Atom
+</a>
+
+    </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="instanceof checks in Javascript">instanceof checks in Javascript</h1>
+    <p>
+          Posted on Sat 04 July 2020 in <a href="/category/javascript.html">Javascript</a>
+
+
+        &#8226; 1 min read
+    </p>
+  </header>
+
+
+  <div>
+    <h1>instanceof in Javascript</h1>
+<p>The most common use of instanceof operator in Javascript is to check whether an instance was created from a particular function constructor.
+However if you are aware of how the instanceof works, you can very well conclude that instanceof checks whether the prototype of right side function is in the prototype chain of object on the left side.
+Lets take an example to understand in detail:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">Demo</span><span class="p">()</span> <span class="p">{}</span>
+<span class="kd">function</span> <span class="nx">SubDemo</span><span class="p">()</span> <span class="p">{}</span>
+<span class="nx">SubDemo</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Demo</span><span class="p">();</span>
+<span class="nx">subdemoobj</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SubDemo</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">subdemoobj</span> <span class="k">instanceof</span> <span class="nx">SubDemo</span><span class="p">);</span> <span class="c1">//true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">subdemoobj</span> <span class="k">instanceof</span> <span class="nx">Demo</span><span class="p">);</span> <span class="c1">//true</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>Here if you see subdemoobj object returns true for instance check for class frm which it is instantiated as well as prototype class as Demo is in prototype chain of subemoclass.</p>
+<p>however if we look at below example:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">Demo</span><span class="p">()</span> <span class="p">{};</span>
+<span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Demo</span><span class="p">();</span>
+<span class="nx">Demo</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{};</span> <span class="c1">// changed prototype of demo constructor function</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span> <span class="k">instanceof</span> <span class="nx">Demo</span><span class="p">);</span> <span class="c1">// false</span>
+</code></pre></div>
+
+
+<p>If you see the result is 'false'. The reason being, we created object form Demo function and later we changed the prototype of Demo constructor to point to diff object.
+so on change of prototype, right side of instanceof ie. Demo here has a prototype {} which is not in prototype chain of obj ( which has Demo in its prototype change as it was created prior to making prototype change ).</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="/tag/javascript.html">Javascript</a>
+    </p>
+  </div>
+
+
+
+
+
+</article>
+
+    <footer>
+<p>&copy;  </p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " My Tech Blogs ",
+  "url" : "",
+  "image": "/images/profile.png",
+  "description": ""
+}
+</script>
+
+</body>
+</html>
