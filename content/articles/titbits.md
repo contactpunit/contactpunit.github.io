@@ -134,3 +134,11 @@ function add(first=second, second) {
 }
 ```
 Here above if we have first argument dependent on later argument ( in this case second), would result in an undefined being set for first, rather than value of second.
+so calling add(undefined, 2) raises an error.
+This again brings us to interesting question.
+What happens when we call: 
+```javascript
+  console.log(add(undefined, 2)); // throws an error
+  console.log(add(null, 2)) // 2
+```
+This comparison tells that null doesnot account for no value being passed, rather null is taken as a value, which is different than passing undefined.
