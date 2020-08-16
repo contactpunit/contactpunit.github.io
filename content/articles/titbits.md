@@ -142,3 +142,101 @@ What happens when we call:
   console.log(add(null, 2)) // 2
 ```
 This comparison tells that null doesnot account for no value being passed, rather null is taken as a value, which is different than passing undefined.
+
+# Titbit 9 - Returning object from arrow function
+
+To return an object from an arrow function use below syntax:
+
+```javascript
+let arrfunction = () => ({name: 'John', age: 42})
+console.log(arrfunction());
+```
+
+Note the use of parenthesis around the arrow function.
+
+# Titbit 10 - nested object destructuring
+
+In ECMA6, it is possible to destructure a nested object, like below:
+
+```javascript
+let userAddress = {
+    address: {
+      house: "grand victoria",
+      street: "3rd cross",
+      city: "bangalore"
+    }
+  }
+  
+  let {address: { house }} = userAddress;
+  console.log(house) // grand victoria
+```
+# Titbit 11 - Swap values
+
+In older version of javascript, to swap 2 variable values a temporary variable was required.
+However in ECMA6 it is easier and uses variable de-structuring to swap variable values.
+
+```javascript
+let a = 10;
+let b = 20;
+[a, b] = [b, a]
+console.log(a,b) // 20 10
+```
+Make sure there is some value in variable as object destructuring throws error if the right side of destructuring as null or undefined in variable.
+
+# Titbit 11 - Destructuring nested arrays
+
+Just like destructuring nested objects, we can also destructure nested arrays as well.
+
+let colors = [ 'red', ['skyblue', 'pink'] ]
+let [darkcolor, [lightcolor]] = colors;
+console.log(darkcolor, lightcolor) // red skyblue
+
+# Titbit 12 - cloning an array
+
+rest items can be used to clone an array
+
+```javascript
+let names = ['john', 'peter', 'andrew']
+let [...cloneNames] = names; 
+```
+
+# Titbit 13 - forEach in Sets Arrays and Maps
+
+forEach method in different datatypes:
+
+```javascript
+let arr = [1,2, 3, 4];
+arr.forEach(function(elem) {
+    console.log(elem);
+})
+
+let set = new Set([1,3,3,3,2,4,7]);
+set.forEach(function(elem) {
+    console.log(elem);
+})
+
+let m = new Map([['name', 'punit'], ['age', 25]])
+m.forEach(function(k, v) {
+    console.log(k, v); // value, key of a map
+})
+
+```
+
+# Titbit 14 - for-of loop
+
+we already know how for-of loop works. We also know how default iterator are used for builtin collections when for-of loop is used.
+like :
+array - default iterator is values()
+set - default iterator is values()
+map - default iterator is entries()
+this feature can be used in destructuring of maps as below:
+```javascript
+let m = new Map([['name', 'punit'], ['age', 42]]);
+for (let [k, v] of m) {
+    console.log(k, v)
+}
+```
+
+if you see above example, we have not used m.entries() as entries is default iterator for map.
+this returns an array which is destructured in to [k, v] to capture key and corresponding value.
+
