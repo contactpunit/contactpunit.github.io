@@ -95,7 +95,7 @@
           Posted on Sat 25 July 2020 in <a href="/category/javascript.html">Javascript</a>
 
 
-        &#8226; 2 min read
+        &#8226; 4 min read
     </p>
   </header>
 
@@ -211,7 +211,97 @@ Note here that the function call doesnot happen when function decleration is fir
 </code></pre></div>
 
 
-<p>Here above if we have first argument dependent on later argument ( in this case second), would result in an undefined being set for first, rather than value of second.</p>
+<p>Here above if we have first argument dependent on later argument ( in this case second), would result in an undefined being set for first, rather than value of second.
+so calling add(undefined, 2) raises an error.
+This again brings us to interesting question.
+What happens when we call: </p>
+<div class="highlight"><pre><span></span><code>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">add</span><span class="p">(</span><span class="kc">undefined</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span> <span class="c1">// throws an error</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">add</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="c1">// 2</span>
+</code></pre></div>
+
+
+<p>This comparison tells that null doesnot account for no value being passed, rather null is taken as a value, which is different than passing undefined.</p>
+<h1>Titbit 9 - Returning object from arrow function</h1>
+<p>To return an object from an arrow function use below syntax:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">arrfunction</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">({</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="nx">age</span><span class="o">:</span> <span class="mi">42</span><span class="p">})</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arrfunction</span><span class="p">());</span>
+</code></pre></div>
+
+
+<p>Note the use of parenthesis around the arrow function.</p>
+<h1>Titbit 10 - nested object destructuring</h1>
+<p>In ECMA6, it is possible to destructure a nested object, like below:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">userAddress</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">address</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">house</span><span class="o">:</span> <span class="s2">&quot;grand victoria&quot;</span><span class="p">,</span>
+      <span class="nx">street</span><span class="o">:</span> <span class="s2">&quot;3rd cross&quot;</span><span class="p">,</span>
+      <span class="nx">city</span><span class="o">:</span> <span class="s2">&quot;bangalore&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="kd">let</span> <span class="p">{</span><span class="nx">address</span><span class="o">:</span> <span class="p">{</span> <span class="nx">house</span> <span class="p">}}</span> <span class="o">=</span> <span class="nx">userAddress</span><span class="p">;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">house</span><span class="p">)</span> <span class="c1">// grand victoria</span>
+</code></pre></div>
+
+
+<h1>Titbit 11 - Swap values</h1>
+<p>In older version of javascript, to swap 2 variable values a temporary variable was required.
+However in ECMA6 it is easier and uses variable de-structuring to swap variable values.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="p">[</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="nx">b</span><span class="p">,</span> <span class="nx">a</span><span class="p">]</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">)</span> <span class="c1">// 20 10</span>
+</code></pre></div>
+
+
+<p>Make sure there is some value in variable as object destructuring throws error if the right side of destructuring as null or undefined in variable.</p>
+<h1>Titbit 11 - Destructuring nested arrays</h1>
+<p>Just like destructuring nested objects, we can also destructure nested arrays as well.</p>
+<p>let colors = [ 'red', ['skyblue', 'pink'] ]
+let [darkcolor, [lightcolor]] = colors;
+console.log(darkcolor, lightcolor) // red skyblue</p>
+<h1>Titbit 12 - cloning an array</h1>
+<p>rest items can be used to clone an array</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;john&#39;</span><span class="p">,</span> <span class="s1">&#39;peter&#39;</span><span class="p">,</span> <span class="s1">&#39;andrew&#39;</span><span class="p">]</span>
+<span class="kd">let</span> <span class="p">[...</span><span class="nx">cloneNames</span><span class="p">]</span> <span class="o">=</span> <span class="nx">names</span><span class="p">;</span> 
+</code></pre></div>
+
+
+<h1>Titbit 13 - forEach in Sets Arrays and Maps</h1>
+<p>forEach method in different datatypes:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
+<span class="nx">arr</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">elem</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">elem</span><span class="p">);</span>
+<span class="p">})</span>
+
+<span class="kd">let</span> <span class="nx">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">]);</span>
+<span class="nx">set</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">elem</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">elem</span><span class="p">);</span>
+<span class="p">})</span>
+
+<span class="kd">let</span> <span class="nx">m</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">([[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;punit&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="mi">25</span><span class="p">]])</span>
+<span class="nx">m</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">k</span><span class="p">,</span> <span class="nx">v</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">k</span><span class="p">,</span> <span class="nx">v</span><span class="p">);</span> <span class="c1">// value, key of a map</span>
+<span class="p">})</span>
+</code></pre></div>
+
+
+<h1>Titbit 14 - for-of loop</h1>
+<p>we already know how for-of loop works. We also know how default iterator are used for builtin collections when for-of loop is used.
+like :
+array - default iterator is values()
+set - default iterator is values()
+map - default iterator is entries()
+this feature can be used in destructuring of maps as below:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">m</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">([[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;punit&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="mi">42</span><span class="p">]]);</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="p">[</span><span class="nx">k</span><span class="p">,</span> <span class="nx">v</span><span class="p">]</span> <span class="k">of</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">k</span><span class="p">,</span> <span class="nx">v</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>if you see above example, we have not used m.entries() as entries is default iterator for map.
+this returns an array which is destructured in to [k, v] to capture key and corresponding value.</p>
   </div>
   <div class="tag-cloud">
     <p>

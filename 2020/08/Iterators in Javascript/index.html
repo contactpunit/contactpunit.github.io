@@ -1,0 +1,304 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="/theme/pygments/friendly.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
+
+
+    <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="My Tech Blogs Atom">
+
+
+
+
+
+<meta name="author" content="Punit Jain" />
+<meta name="description" content="Iterators in Javascript Explained" />
+<meta name="keywords" content="Javascript">
+
+<meta property="og:site_name" content="My Tech Blogs"/>
+<meta property="og:title" content="Iterators in Javascript"/>
+<meta property="og:description" content="Iterators in Javascript Explained"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="/2020/08/Iterators in Javascript/"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-08-16 16:19:00+05:30"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="/author/punit-jain.html">
+<meta property="article:section" content="Javascript"/>
+<meta property="article:tag" content="Javascript"/>
+<meta property="og:image" content="/images/profile.png">
+
+  <title>My Tech Blogs &ndash; Iterators in Javascript</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="">
+        <img src="/images/profile.png" alt="Punit Jain" title="Punit Jain">
+      </a>
+      <h1><a href="">Punit Jain</a></h1>
+
+<p>Ideas and Thoughts</p>
+      <nav>
+        <ul class="list">
+          <li><a href="/about/#about">About</a></li>
+          <li><a href="/contact/#contact">Contact</a></li>
+
+          <li><a href="http://getpelican.com/" target="_blank">Pelican</a></li>
+          <li><a href="http://python.org/" target="_blank">Python.org</a></li>
+          <li><a href="http://jinja.pocoo.org/" target="_blank">Jinja2</a></li>
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-github" href="https://github.com/contactpunit" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-envelope" href="mailto:contactpunitjain@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a></li>
+        <li><a class="sc-linkedin" href="https://np.linkedin.com/in/punit-jain-25302823" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+    <nav>
+      <a href="">    Home
+</a>
+
+      <a href="/">Home</a>
+      <a href="/archives">Archives</a>
+      <a href="/categories">Categories</a>
+      <a href="/tags">Tags</a>
+
+      <a href="/feeds/all.atom.xml">    Atom
+</a>
+
+    </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="Iterators in Javascript">Iterators in Javascript</h1>
+    <p>
+          Posted on Sun 16 August 2020 in <a href="/category/javascript.html">Javascript</a>
+
+
+        &#8226; 4 min read
+    </p>
+  </header>
+
+
+  <div>
+    <h1>Iterators in Javascript</h1>
+<p>Iterators are objects with interface that supports iteration.
+Question comes is what are iterators. Any object that can be traversed and produces values one by one are iterators.
+However, in javascript terms iterators should follow some rules:
+1. Iterators have next() method which when called generates an object.
+2. The object returned has 2 properties 'value' and 'done.'
+3. 'value' property gives the next value from the iterator
+4. 'done' property tells if there are any more values still remaining to be returned.
+5. Iterator can be traversed only once. Once completed, it cannot be restarted.
+6. If all values are returned, 'value' of undefined is returned going forward.</p>
+<p>We can create an iterator manually as well. Below is an example of one of the iterators:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">iterators</span><span class="p">(</span><span class="nx">items</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="nx">next</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">done</span> <span class="o">=</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&gt;=</span> <span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+            <span class="kd">var</span> <span class="nx">value</span> <span class="o">=</span> <span class="o">!</span><span class="nx">done</span> <span class="o">?</span> <span class="nx">items</span><span class="p">[</span><span class="nx">i</span><span class="o">++</span><span class="p">]</span> <span class="o">:</span> <span class="kc">undefined</span><span class="p">;</span>
+            <span class="k">return</span> <span class="p">{</span>
+                <span class="nx">value</span><span class="p">,</span>
+                <span class="nx">done</span>
+            <span class="p">};</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">let</span> <span class="nx">sampleIterator</span> <span class="o">=</span> <span class="nx">iterators</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sampleIterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sampleIterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sampleIterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sampleIterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sampleIterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span>
+
+<span class="c1">// output</span>
+<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="kc">undefined</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}</span>
+</code></pre></div>
+
+
+<p>As you see above creating an iterator with hand is not straight forward, so javascript already gave a mechanism to mke this process easy.
+This is done using a generator. Generator returns and iterator.</p>
+<h1>Generators</h1>
+<p>Generator is a function that returns an iterator which can then be traversed using next() method on the iterator.
+Generator is created using an * between function keyword and name of function.
+also a 'yield' keyword inside the function body marks a function as a generator.
+Generators have sme rules similar to iterators:
+1. They have yield statement inside the function body
+2. Generator function on execution returns iterator which is later traversed to produce vaules.
+3. Iterator returned from generator function, doesnot produce all values at once.
+4. Each value is produced on call to next() method, after which generator object goes to sleep untill it is called again.</p>
+<p>ets take previous example where we created iterator with hand and convert it to use generator.
+The simplest approach is :</p>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="o">*</span> <span class="nx">generator</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">yield</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">yield</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="k">yield</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="k">yield</span> <span class="mi">4</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">iterator</span> <span class="o">=</span> <span class="nx">generator</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span>
+
+<span class="c1">//output</span>
+<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="kc">undefined</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}</span>
+</code></pre></div>
+
+
+<p>Same as previous example, however here we have hardcoded values to be produced inside the generator function.
+Lets try passing items as input like in first example.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="o">*</span> <span class="nx">generator</span><span class="p">(</span><span class="nx">items</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">yield</span> <span class="nx">items</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">iterator</span> <span class="o">=</span> <span class="nx">generator</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span>
+
+<span class="c1">// output</span>
+<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="kc">undefined</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}</span>
+</code></pre></div>
+
+
+<h1>Generator Function Expressions</h1>
+<p>function expressions can be used to create generators as well.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">gen</span> <span class="o">=</span> <span class="kd">function</span> <span class="o">*</span> <span class="nx">generator</span><span class="p">(</span><span class="nx">items</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span><span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">yield</span> <span class="nx">items</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">iterator</span> <span class="o">=</span> <span class="nx">gen</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span>
+</code></pre></div>
+
+
+<p>However there is one problem with this approach if you see.
+We are calculating length of iterable inside the loop. Generators are meant to traverse infinite iterators and dont need to know length of an iterable.
+This approach is not productive as imagine if we have a million item inside items array, to calculate the length of items, items will need to be loaded in memory which defeats the purpose.
+One approach is to look for done property each time we traverse the loop and when done is true we break out, like below:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="o">*</span> <span class="nx">generator</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">yield</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">yield</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="k">yield</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="k">yield</span> <span class="mi">4</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">iterator</span> <span class="o">=</span> <span class="nx">generator</span><span class="p">()</span>
+<span class="k">while</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">result</span> <span class="o">=</span> <span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// output</span>
+<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
+</code></pre></div>
+
+
+<p>However using while loop and everytime checking for value of done property, as well as creating an iterator first from generator function is cumbersome process.
+Javascript provides a syntactic sugar for this problem and abstracts all this 'for - of' loop.</p>
+<h1>for-of loop</h1>
+<p>An iterable as we discussed earlier is an object from which iterator is created.
+All collection objects like arrays, map, sets are by default iterable.
+There are some characterstics of iterable which you should be aware of: 
+1. An iterable has Symbol.iterator property. 
+2. when we use for-of loop, it calls Symbol.iterator method on iterable to retrieve an iterator.
+3. Then iterator.next() method is called and done property is checked if it is false or true. 
+4. If false iterator.next() is caled until true is returned for done property. That's when loop stops execution. </p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">items</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">];</span>
+<span class="k">for</span> <span class="p">(</span> <span class="kd">let</span> <span class="nx">i</span> <span class="k">of</span> <span class="nx">items</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// output</span>
+<span class="mi">1</span>
+<span class="mi">2</span>
+<span class="mi">2</span>
+<span class="mi">3</span>
+<span class="mi">4</span>
+</code></pre></div>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="/tag/javascript.html">Javascript</a>
+    </p>
+  </div>
+
+
+
+
+
+</article>
+
+    <footer>
+<p>&copy;  </p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " My Tech Blogs ",
+  "url" : "",
+  "image": "/images/profile.png",
+  "description": ""
+}
+</script>
+
+</body>
+</html>

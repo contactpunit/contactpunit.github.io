@@ -5,35 +5,35 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/</loc>
-<lastmod>2020-08-16T08:00:58-00:00</lastmod>
+<lastmod>2020-08-16T20:07:11-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
 
 <url>
 <loc>/tags.html</loc>
-<lastmod>2020-08-16T08:00:58-00:00</lastmod>
+<lastmod>2020-08-16T20:07:11-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
 
 <url>
 <loc>/categories.html</loc>
-<lastmod>2020-08-16T08:00:58-00:00</lastmod>
+<lastmod>2020-08-16T20:07:11-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
 
 <url>
 <loc>/authors.html</loc>
-<lastmod>2020-08-16T08:00:58-00:00</lastmod>
+<lastmod>2020-08-16T20:07:11-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
 
 <url>
 <loc>/archives.html</loc>
-<lastmod>2020-08-16T08:00:58-00:00</lastmod>
+<lastmod>2020-08-16T20:07:11-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
@@ -50,6 +50,27 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <lastmod>2020-05-16T03:27:00+05:30</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
+</url>
+
+<url>
+<loc>/2020/08/Iterators in Javascript/</loc>
+<lastmod>2020-08-16T16:19:00+05:30</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.6</priority>
+</url>
+
+<url>
+<loc>/2020/08/Custom iterators in Javascript/</loc>
+<lastmod>2020-08-15T14:32:00+05:30</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.6</priority>
+</url>
+
+<url>
+<loc>/2020/08/spread operator in Javascript/</loc>
+<lastmod>2020-08-09T19:22:00+05:30</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.6</priority>
 </url>
 
 <url>
@@ -152,7 +173,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/category/javascript.html</loc>
-<lastmod>2020-07-25T19:27:00+05:53</lastmod>
+<lastmod>2020-08-16T16:19:00+05:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
@@ -166,7 +187,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/tag/javascript.html</loc>
-<lastmod>2020-07-25T19:27:00+05:53</lastmod>
+<lastmod>2020-08-16T16:19:00+05:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
@@ -180,7 +201,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/author/punit-jain.html</loc>
-<lastmod>2020-07-25T19:27:00+05:53</lastmod>
+<lastmod>2020-08-16T16:19:00+05:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
