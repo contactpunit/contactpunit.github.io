@@ -103,3 +103,34 @@ let finalarray = removeDuplicates(duplicatearray);
 console.log(finalarray) // [1,4,3,2,7]
 ```
 Here we have used Set to remove duplicates and then passed the set output to array using spread operator.
+
+# Titbit 8 - Default parameter expression
+
+As we are aware in EMA 6 we can provide a default variable declaration as below:
+
+```javascript
+function add(first, second=10) {
+  return first + second;
+}
+```
+Here if second is not provided, default value of 10 is taken.
+However the default value can also be a function call like below:
+
+```javascript
+function returnvalue() {
+  return 5;
+}
+function add(first, second=returnvalue()) {
+  return first + second;
+}
+```
+Here whatever value is returned from returnvalue function execution is assigned to second as default.
+Note here that the function call doesnot happen when function decleration is first parsed, rather it is called when returnvalue() is called.
+
+This brings us an important point to watch out for.
+```javascript
+function add(first=second, second) {
+  return first + second;
+}
+```
+Here above if we have first argument dependent on later argument ( in this case second), would result in an undefined being set for first, rather than value of second.
