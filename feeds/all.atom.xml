@@ -80,7 +80,36 @@ Important point to note here is that function return_default_value is only calle
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Here we have used Set to remove duplicates and then passed the set output to array using spread operator.&lt;/p&gt;</content><category term="Javascript"></category><category term="Javascript"></category></entry><entry><title>Variable declaration question in Javascript</title><link href="/2020/07/Variable%20declaration%20question%20in%20Javascript/" rel="alternate"></link><published>2020-07-25T19:27:00+05:30</published><updated>2020-07-25T19:27:00+05:30</updated><author><name>Punit Jain</name></author><id>tag:None,2020-07-25:/2020/07/Variable declaration question in Javascript/</id><summary type="html">&lt;p&gt;Variable declaration question in Javascript&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Question&lt;/h1&gt;
+&lt;p&gt;Here we have used Set to remove duplicates and then passed the set output to array using spread operator.&lt;/p&gt;
+&lt;h1&gt;Titbit 8 - Default parameter expression&lt;/h1&gt;
+&lt;p&gt;As we are aware in EMA 6 we can provide a default variable declaration as below:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;first&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;second&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;first&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;second&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Here if second is not provided, default value of 10 is taken.
+However the default value can also be a function call like below:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;returnvalue&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;first&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;second&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nx"&gt;returnvalue&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;first&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;second&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Here whatever value is returned from returnvalue function execution is assigned to second as default.
+Note here that the function call doesnot happen when function decleration is first parsed, rather it is called when returnvalue() is called.&lt;/p&gt;
+&lt;p&gt;This brings us an important point to watch out for.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;first&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nx"&gt;second&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;second&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;first&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;second&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Here above if we have first argument dependent on later argument ( in this case second), would result in an undefined being set for first, rather than value of second.&lt;/p&gt;</content><category term="Javascript"></category><category term="Javascript"></category></entry><entry><title>Variable declaration question in Javascript</title><link href="/2020/07/Variable%20declaration%20question%20in%20Javascript/" rel="alternate"></link><published>2020-07-25T19:27:00+05:30</published><updated>2020-07-25T19:27:00+05:30</updated><author><name>Punit Jain</name></author><id>tag:None,2020-07-25:/2020/07/Variable declaration question in Javascript/</id><summary type="html">&lt;p&gt;Variable declaration question in Javascript&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Question&lt;/h1&gt;
 &lt;p&gt;Below is a program and guess what will be the output without looking into answer.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;count&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;30&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="kd"&gt;let&lt;/span&gt; &lt;span class="nx"&gt;count&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;

@@ -183,6 +183,35 @@ Important point to note here is that function return_default_value is only calle
 
 
 <p>Here we have used Set to remove duplicates and then passed the set output to array using spread operator.</p>
+<h1>Titbit 8 - Default parameter expression</h1>
+<p>As we are aware in EMA 6 we can provide a default variable declaration as below:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">first</span><span class="p">,</span> <span class="nx">second</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">first</span> <span class="o">+</span> <span class="nx">second</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>Here if second is not provided, default value of 10 is taken.
+However the default value can also be a function call like below:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">returnvalue</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="mi">5</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">first</span><span class="p">,</span> <span class="nx">second</span><span class="o">=</span><span class="nx">returnvalue</span><span class="p">())</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">first</span> <span class="o">+</span> <span class="nx">second</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>Here whatever value is returned from returnvalue function execution is assigned to second as default.
+Note here that the function call doesnot happen when function decleration is first parsed, rather it is called when returnvalue() is called.</p>
+<p>This brings us an important point to watch out for.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">first</span><span class="o">=</span><span class="nx">second</span><span class="p">,</span> <span class="nx">second</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">first</span> <span class="o">+</span> <span class="nx">second</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>Here above if we have first argument dependent on later argument ( in this case second), would result in an undefined being set for first, rather than value of second.</p>
   </div>
   <div class="tag-cloud">
     <p>
