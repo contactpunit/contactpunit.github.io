@@ -106,20 +106,21 @@
 <h2>Titbit 1 - Default parameter values</h2>
 <p>It is possible to specify default values for any arguments to function and it can appear before positional arguments as well.
  This is unlike in other languages like Python were positional params should come before named params.</p>
-<p>```javascript
-function getResponse(url, timeout=10, callback) {
-  // function body defined here
-}</p>
-<p>getResponse('/', 20, function() {});</p>
-<div class="highlight"><pre><span></span><code><span class="o">##</span> <span class="n">Titbit</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">undefined</span> <span class="k">as</span> <span class="k">default</span> <span class="n">value</span>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">getResponse</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="nx">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// function body defined here</span>
+<span class="p">}</span>
 
-<span class="n">We</span> <span class="n">can</span> <span class="n">pass</span> <span class="s1">&#39;undefined&#39;</span> <span class="k">as</span> <span class="k">default</span> <span class="n">value</span> <span class="k">for</span> <span class="n">named</span> <span class="k">parameter</span><span class="p">.</span>
-<span class="o">```</span><span class="n">javascript</span>
-<span class="k">function</span> <span class="n">getResponse</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">callback</span><span class="p">)</span> <span class="err">{</span>
-  <span class="o">//</span> <span class="k">function</span> <span class="n">body</span> <span class="k">defined</span> <span class="n">here</span>
-<span class="err">}</span>
+<span class="nx">getResponse</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{});</span>
+</code></pre></div>
 
-<span class="n">getResponse</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="n">undefined</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="err">{}</span><span class="p">);</span>
+
+<h2>Titbit 2 - undefined as default value</h2>
+<p>We can pass 'undefined' as default value for named parameter.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">getResponse</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="nx">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// function body defined here</span>
+<span class="p">}</span>
+
+<span class="nx">getResponse</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{});</span>
 </code></pre></div>
 
 
