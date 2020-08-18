@@ -304,6 +304,25 @@ this feature can be used in destructuring of maps as below:</p>
 
 <p>if you see above example, we have not used m.entries() as entries is default iterator for map.
 this returns an array which is destructured in to [k, v] to capture key and corresponding value.</p>
+<h2>Titbit 16 - for-in loop</h2>
+<p>It is interesting to know that for-in loop is basically same as calling Object.keys() on an object.
+Consider an example below:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">firstName</span><span class="o">:</span> <span class="s1">&#39;Punit&#39;</span><span class="p">,</span>
+    <span class="nx">lastName</span><span class="o">:</span> <span class="s1">&#39;Jain&#39;</span><span class="p">,</span>
+    <span class="nx">age</span><span class="o">:</span> <span class="mi">27</span>
+<span class="p">}</span>
+
+<span class="k">for</span><span class="p">(</span> <span class="kd">let</span> <span class="nx">property</span> <span class="k">in</span> <span class="nx">person</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">property</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// firstName</span>
+<span class="c1">// lastName</span>
+<span class="c1">// age</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">person</span><span class="p">))</span>
+<span class="c1">//[ &#39;firstName&#39;, &#39;lastName&#39;, &#39;age&#39; ]</span>
+</code></pre></div>
   </div>
   <div class="tag-cloud">
     <p>

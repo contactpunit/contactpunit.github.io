@@ -487,7 +487,26 @@ this feature can be used in destructuring of maps as below:&lt;/p&gt;
 
 
 &lt;p&gt;if you see above example, we have not used m.entries() as entries is default iterator for map.
-this returns an array which is destructured in to [k, v] to capture key and corresponding value.&lt;/p&gt;</content><category term="Javascript"></category><category term="Javascript"></category></entry><entry><title>Variable declaration question in Javascript</title><link href="/2020/07/Variable%20declaration%20question%20in%20Javascript/" rel="alternate"></link><published>2020-07-25T19:27:00+05:30</published><updated>2020-07-25T19:27:00+05:30</updated><author><name>Punit Jain</name></author><id>tag:None,2020-07-25:/2020/07/Variable declaration question in Javascript/</id><summary type="html">&lt;p&gt;Variable declaration question in Javascript&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Question&lt;/h1&gt;
+this returns an array which is destructured in to [k, v] to capture key and corresponding value.&lt;/p&gt;
+&lt;h2&gt;Titbit 16 - for-in loop&lt;/h2&gt;
+&lt;p&gt;It is interesting to know that for-in loop is basically same as calling Object.keys() on an object.
+Consider an example below:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;let&lt;/span&gt; &lt;span class="nx"&gt;person&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nx"&gt;firstName&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Punit&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="nx"&gt;lastName&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Jain&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="nx"&gt;age&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;27&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="kd"&gt;let&lt;/span&gt; &lt;span class="nx"&gt;property&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="nx"&gt;person&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;property&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="c1"&gt;// firstName&lt;/span&gt;
+&lt;span class="c1"&gt;// lastName&lt;/span&gt;
+&lt;span class="c1"&gt;// age&lt;/span&gt;
+
+&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;Object&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;keys&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;person&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="c1"&gt;//[ &amp;#39;firstName&amp;#39;, &amp;#39;lastName&amp;#39;, &amp;#39;age&amp;#39; ]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Javascript"></category><category term="Javascript"></category></entry><entry><title>Variable declaration question in Javascript</title><link href="/2020/07/Variable%20declaration%20question%20in%20Javascript/" rel="alternate"></link><published>2020-07-25T19:27:00+05:30</published><updated>2020-07-25T19:27:00+05:30</updated><author><name>Punit Jain</name></author><id>tag:None,2020-07-25:/2020/07/Variable declaration question in Javascript/</id><summary type="html">&lt;p&gt;Variable declaration question in Javascript&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Question&lt;/h1&gt;
 &lt;p&gt;Below is a program and guess what will be the output without looking into answer.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;count&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;30&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="kd"&gt;let&lt;/span&gt; &lt;span class="nx"&gt;count&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
