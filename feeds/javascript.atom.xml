@@ -287,7 +287,7 @@ like in case of map it is entries(), incase of set values() etc.
 &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt; &lt;span class="p"&gt;]&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Javascript"></category><category term="Javascript"></category></entry><entry><title>Titbits in Javascript</title><link href="/2020/07/Titbits%20in%20Javascript/" rel="alternate"></link><published>2020-07-25T19:27:00+05:30</published><updated>2020-07-25T19:27:00+05:30</updated><author><name>Punit Jain</name></author><id>tag:None,2020-07-25:/2020/07/Titbits in Javascript/</id><summary type="html">&lt;p&gt;Titbits in Javascript&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Important Titbits&lt;/h1&gt;
 &lt;p&gt;This blog discusses on important titbits in javascript that you might find helpful&lt;/p&gt;
-&lt;p&gt;# Titbit 1 - Default parameter values&lt;/p&gt;
+&lt;h2&gt;Titbit 1 - Default parameter values&lt;/h2&gt;
 &lt;p&gt;It is possible to specify default values for any arguments to function and it can appear before positional arguments as well.
  This is unlike in other languages like Python were positional params should come before named params.&lt;/p&gt;
 &lt;p&gt;```javascript
@@ -295,7 +295,8 @@ function getResponse(url, timeout=10, callback) {
   // function body defined here
 }&lt;/p&gt;
 &lt;p&gt;getResponse('/', 20, function() {});&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;Titbit&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;undefined&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="k"&gt;default&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;##&lt;/span&gt; &lt;span class="n"&gt;Titbit&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;undefined&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="k"&gt;default&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;
+
 &lt;span class="n"&gt;We&lt;/span&gt; &lt;span class="n"&gt;can&lt;/span&gt; &lt;span class="n"&gt;pass&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;undefined&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="k"&gt;default&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;named&lt;/span&gt; &lt;span class="k"&gt;parameter&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
 &lt;span class="o"&gt;```&lt;/span&gt;&lt;span class="n"&gt;javascript&lt;/span&gt;
 &lt;span class="k"&gt;function&lt;/span&gt; &lt;span class="n"&gt;getResponse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;timeout&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;callback&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
@@ -307,7 +308,7 @@ function getResponse(url, timeout=10, callback) {
 
 
 &lt;p&gt;In above example timeout is assigned default value of 10.&lt;/p&gt;
-&lt;h1&gt;Titbit 3 - passing function as default value&lt;/h1&gt;
+&lt;h2&gt;Titbit 3 - passing function as default value&lt;/h2&gt;
 &lt;p&gt;For the case below:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;let&lt;/span&gt; &lt;span class="nx"&gt;variable&lt;/span&gt;  &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 
@@ -327,7 +328,7 @@ function getResponse(url, timeout=10, callback) {
 &lt;p&gt;In the above example first call to printvalue with an input param, assigns 20 to inputvalue.
 In second case without any parameter passed return_default_value function is called to get value to be assigned to inputvalue.
 Important point to note here is that function return_default_value is only called when no input parameter is passed.&lt;/p&gt;
-&lt;h1&gt;Titbit 4 - Triple equals operator&lt;/h1&gt;
+&lt;h2&gt;Titbit 4 - Triple equals operator&lt;/h2&gt;
 &lt;p&gt;Comparing below equality:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;1&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;// true&lt;/span&gt;
 &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;1&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;// false&lt;/span&gt;
@@ -335,7 +336,7 @@ Important point to note here is that function return_default_value is only calle
 
 
 &lt;p&gt;Note that '==' double equals does a type coercion to do comparison. Always use triple equals to do equality checks.&lt;/p&gt;
-&lt;h1&gt;Titbit 5 - isNaN check&lt;/h1&gt;
+&lt;h2&gt;Titbit 5 - isNaN check&lt;/h2&gt;
 &lt;p&gt;Below code:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nx"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;NaN&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;a&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="kc"&gt;NaN&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;// false&lt;/span&gt;
@@ -345,7 +346,7 @@ Important point to note here is that function return_default_value is only calle
 
 
 &lt;p&gt;use isNaN to check for NaN property.&lt;/p&gt;
-&lt;h1&gt;Titbit 6 - Object.is method&lt;/h1&gt;
+&lt;h2&gt;Titbit 6 - Object.is method&lt;/h2&gt;
 &lt;p&gt;ECMA6 introduces Object.is method which solves lot of equality issues in prior versions:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nx"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;NaN&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;Object&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;is&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kc"&gt;NaN&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;     &lt;span class="c1"&gt;// true&lt;/span&gt;
@@ -355,7 +356,7 @@ Important point to note here is that function return_default_value is only calle
 
 
 &lt;p&gt;Object.is method returns true if the type as well as value is same for comparison.&lt;/p&gt;
-&lt;h1&gt;Titbit 7 - Removing duplicates from an Array&lt;/h1&gt;
+&lt;h2&gt;Titbit 7 - Removing duplicates from an Array&lt;/h2&gt;
 &lt;p&gt;In ECMA6 there is pretty easy way to remove duplicates from an array&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;let&lt;/span&gt; &lt;span class="nx"&gt;duplicatearray&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
 &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;removeDuplicates&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;items&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
@@ -367,7 +368,7 @@ Important point to note here is that function return_default_value is only calle
 
 
 &lt;p&gt;Here we have used Set to remove duplicates and then passed the set output to array using spread operator.&lt;/p&gt;
-&lt;h1&gt;Titbit 8 - Default parameter expression&lt;/h1&gt;
+&lt;h2&gt;Titbit 8 - Default parameter expression&lt;/h2&gt;
 &lt;p&gt;As we are aware in EMA 6 we can provide a default variable declaration as below:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;first&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;second&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;first&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;second&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
@@ -405,7 +406,7 @@ What happens when we call: &lt;/p&gt;
 
 
 &lt;p&gt;This comparison tells that null doesnot account for no value being passed, rather null is taken as a value, which is different than passing undefined.&lt;/p&gt;
-&lt;h1&gt;Titbit 9 - Returning object from arrow function&lt;/h1&gt;
+&lt;h2&gt;Titbit 9 - Returning object from arrow function&lt;/h2&gt;
 &lt;p&gt;To return an object from an arrow function use below syntax:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;let&lt;/span&gt; &lt;span class="nx"&gt;arrfunction&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="nx"&gt;name&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;John&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;age&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;42&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;
 &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;arrfunction&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
@@ -413,7 +414,7 @@ What happens when we call: &lt;/p&gt;
 
 
 &lt;p&gt;Note the use of parenthesis around the arrow function.&lt;/p&gt;
-&lt;h1&gt;Titbit 10 - nested object destructuring&lt;/h1&gt;
+&lt;h2&gt;Titbit 10 - nested object destructuring&lt;/h2&gt;
 &lt;p&gt;In ECMA6, it is possible to destructure a nested object, like below:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;let&lt;/span&gt; &lt;span class="nx"&gt;userAddress&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="nx"&gt;address&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
@@ -428,7 +429,7 @@ What happens when we call: &lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h1&gt;Titbit 11 - Swap values&lt;/h1&gt;
+&lt;h2&gt;Titbit 11 - Swap values&lt;/h2&gt;
 &lt;p&gt;In older version of javascript, to swap 2 variable values a temporary variable was required.
 However in ECMA6 it is easier and uses variable de-structuring to swap variable values.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;let&lt;/span&gt; &lt;span class="nx"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
@@ -439,19 +440,19 @@ However in ECMA6 it is easier and uses variable de-structuring to swap variable 
 
 
 &lt;p&gt;Make sure there is some value in variable as object destructuring throws error if the right side of destructuring as null or undefined in variable.&lt;/p&gt;
-&lt;h1&gt;Titbit 11 - Destructuring nested arrays&lt;/h1&gt;
+&lt;h2&gt;Titbit 12 - Destructuring nested arrays&lt;/h2&gt;
 &lt;p&gt;Just like destructuring nested objects, we can also destructure nested arrays as well.&lt;/p&gt;
 &lt;p&gt;let colors = [ 'red', ['skyblue', 'pink'] ]
 let [darkcolor, [lightcolor]] = colors;
 console.log(darkcolor, lightcolor) // red skyblue&lt;/p&gt;
-&lt;h1&gt;Titbit 12 - cloning an array&lt;/h1&gt;
+&lt;h2&gt;Titbit 13 - cloning an array&lt;/h2&gt;
 &lt;p&gt;rest items can be used to clone an array&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;let&lt;/span&gt; &lt;span class="nx"&gt;names&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;john&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;peter&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;andrew&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;span class="kd"&gt;let&lt;/span&gt; &lt;span class="p"&gt;[...&lt;/span&gt;&lt;span class="nx"&gt;cloneNames&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;names&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h1&gt;Titbit 13 - forEach in Sets Arrays and Maps&lt;/h1&gt;
+&lt;h2&gt;Titbit 14 - forEach in Sets Arrays and Maps&lt;/h2&gt;
 &lt;p&gt;forEach method in different datatypes:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;let&lt;/span&gt; &lt;span class="nx"&gt;arr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
 &lt;span class="nx"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;forEach&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;elem&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
@@ -470,7 +471,7 @@ console.log(darkcolor, lightcolor) // red skyblue&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h1&gt;Titbit 14 - for-of loop&lt;/h1&gt;
+&lt;h2&gt;Titbit 15 - for-of loop&lt;/h2&gt;
 &lt;p&gt;we already know how for-of loop works. We also know how default iterator are used for builtin collections when for-of loop is used.
 like :
 array - default iterator is values()
