@@ -12,7 +12,7 @@ Status: published
 
 This blog discusses on important titbits in javascript that you might find helpful
 
- # Titbit 1 - Default parameter values
+## Titbit 1 - Default parameter values
  
  It is possible to specify default values for any arguments to function and it can appear before positional arguments as well.
  This is unlike in other languages like Python were positional params should come before named params.
@@ -25,7 +25,8 @@ function getResponse(url, timeout=10, callback) {
 getResponse('/', 20, function() {});
 ```
 
-# Titbit 2 - undefined as default value
+## Titbit 2 - undefined as default value
+
 We can pass 'undefined' as default value for named parameter.
 ```javascript
 function getResponse(url, timeout=10, callback) {
@@ -36,7 +37,7 @@ getResponse('/', undefined, function() {});
 ```
 In above example timeout is assigned default value of 10.
 
-# Titbit 3 - passing function as default value
+## Titbit 3 - passing function as default value
 
 For the case below:
 ```javascript
@@ -58,7 +59,7 @@ In the above example first call to printvalue with an input param, assigns 20 to
 In second case without any parameter passed return_default_value function is called to get value to be assigned to inputvalue.
 Important point to note here is that function return_default_value is only called when no input parameter is passed.
 
-# Titbit 4 - Triple equals operator
+## Titbit 4 - Triple equals operator
 
 Comparing below equality:
 ```javascript
@@ -68,7 +69,7 @@ console.log('1' === 1); // false
 
 Note that '==' double equals does a type coercion to do comparison. Always use triple equals to do equality checks.
 
-# Titbit 5 - isNaN check
+## Titbit 5 - isNaN check
 
 Below code:
 ```javascript
@@ -79,7 +80,7 @@ console.log(isNaN(a)); // true
 ```
 use isNaN to check for NaN property.
 
-# Titbit 6 - Object.is method
+## Titbit 6 - Object.is method
 
 ECMA6 introduces Object.is method which solves lot of equality issues in prior versions:
 ```javascript
@@ -91,7 +92,7 @@ console.log(Object.is(NaN, NaN));  // true
 
 Object.is method returns true if the type as well as value is same for comparison.
 
-# Titbit 7 - Removing duplicates from an Array
+## Titbit 7 - Removing duplicates from an Array
 
 In ECMA6 there is pretty easy way to remove duplicates from an array
 ```javascript
@@ -104,7 +105,7 @@ console.log(finalarray) // [1,4,3,2,7]
 ```
 Here we have used Set to remove duplicates and then passed the set output to array using spread operator.
 
-# Titbit 8 - Default parameter expression
+## Titbit 8 - Default parameter expression
 
 As we are aware in EMA 6 we can provide a default variable declaration as below:
 
@@ -143,7 +144,7 @@ What happens when we call:
 ```
 This comparison tells that null doesnot account for no value being passed, rather null is taken as a value, which is different than passing undefined.
 
-# Titbit 9 - Returning object from arrow function
+## Titbit 9 - Returning object from arrow function
 
 To return an object from an arrow function use below syntax:
 
@@ -154,7 +155,7 @@ console.log(arrfunction());
 
 Note the use of parenthesis around the arrow function.
 
-# Titbit 10 - nested object destructuring
+## Titbit 10 - nested object destructuring
 
 In ECMA6, it is possible to destructure a nested object, like below:
 
@@ -170,7 +171,7 @@ let userAddress = {
   let {address: { house }} = userAddress;
   console.log(house) // grand victoria
 ```
-# Titbit 11 - Swap values
+## Titbit 11 - Swap values
 
 In older version of javascript, to swap 2 variable values a temporary variable was required.
 However in ECMA6 it is easier and uses variable de-structuring to swap variable values.
@@ -183,7 +184,7 @@ console.log(a,b) // 20 10
 ```
 Make sure there is some value in variable as object destructuring throws error if the right side of destructuring as null or undefined in variable.
 
-# Titbit 11 - Destructuring nested arrays
+## Titbit 12 - Destructuring nested arrays
 
 Just like destructuring nested objects, we can also destructure nested arrays as well.
 
@@ -191,7 +192,7 @@ let colors = [ 'red', ['skyblue', 'pink'] ]
 let [darkcolor, [lightcolor]] = colors;
 console.log(darkcolor, lightcolor) // red skyblue
 
-# Titbit 12 - cloning an array
+## Titbit 13 - cloning an array
 
 rest items can be used to clone an array
 
@@ -200,7 +201,7 @@ let names = ['john', 'peter', 'andrew']
 let [...cloneNames] = names; 
 ```
 
-# Titbit 13 - forEach in Sets Arrays and Maps
+## Titbit 14 - forEach in Sets Arrays and Maps
 
 forEach method in different datatypes:
 
@@ -222,7 +223,7 @@ m.forEach(function(k, v) {
 
 ```
 
-# Titbit 14 - for-of loop
+## Titbit 15 - for-of loop
 
 we already know how for-of loop works. We also know how default iterator are used for builtin collections when for-of loop is used.
 like :
