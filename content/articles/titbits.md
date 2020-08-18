@@ -241,3 +241,23 @@ for (let [k, v] of m) {
 if you see above example, we have not used m.entries() as entries is default iterator for map.
 this returns an array which is destructured in to [k, v] to capture key and corresponding value.
 
+## Titbit 16 - for-in loop
+It is interesting to know that for-in loop is basically same as calling Object.keys() on an object.
+Consider an example below:
+```javascript
+let person = {
+    firstName: 'Punit',
+    lastName: 'Jain',
+    age: 27
+}
+
+for( let property in person) {
+    console.log(property)
+}
+// firstName
+// lastName
+// age
+
+console.log(Object.keys(person))
+//[ 'firstName', 'lastName', 'age' ]
+```

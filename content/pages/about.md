@@ -8,4 +8,15 @@ I am mostly into tech and so, my blog will be a reflection of whatever new thing
 
 My native language is Python, however I can also understand Javascript. 
 
+So this is what I think about learning a language.
+ 
+You can spend 10 years writing a code in a language without understanding what is going on under the hood or
+you get to learn first the 'advanced basics' of a language well and make better use of knowledge you gain.
 
+This is just the beginning of my attempt to unravel Python and Javascript language basics.
+
+I hope my blogs help you clarify some doubts on a certain topic of interest.
+
+So I take this platform as a means to collaborate with you and to learn what I miss-understood on a topic.
+
+Happy learning.
