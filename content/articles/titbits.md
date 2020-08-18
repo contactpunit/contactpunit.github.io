@@ -17,7 +17,7 @@ This blog discusses on important titbits in javascript that you might find helpf
  It is possible to specify default values for any arguments to function and it can appear before positional arguments as well.
  This is unlike in other languages like Python were positional params should come before named params.
  
- ```javascript
+```javascript
 function getResponse(url, timeout=10, callback) {
   // function body defined here
 }
