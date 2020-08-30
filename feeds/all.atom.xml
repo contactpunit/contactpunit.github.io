@@ -589,11 +589,14 @@ so on change of prototype, right side of instanceof ie. Demo here has a prototyp
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;p&gt;If a line starts with a function keyword then it is a function declaration.&lt;/p&gt;
 &lt;p&gt;b. As a function expression&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;who&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;who&lt;/span&gt;&lt;span class="p"&gt;)})(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;punit&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;p&gt;If a line doesnot start with function keyword then it might be a function expression.
+Sounds wierd right ? but this is the way we differentiate between function declaration and rest of the ways to define function.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;As a method&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -620,7 +623,24 @@ Example is as below:&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Note here function name is starting with a capital letter unlike in while calling as a regular function where we use a camelcase.&lt;/p&gt;</content><category term="Javascript"></category><category term="Javascript"></category></entry><entry><title>use strict in Javascript</title><link href="/2020/06/strict%20in%20Javascript/" rel="alternate"></link><published>2020-06-16T14:10:00+05:30</published><updated>2020-06-16T14:10:00+05:30</updated><author><name>Punit Jain</name></author><id>tag:None,2020-06-16:/2020/06/strict in Javascript/</id><summary type="html">&lt;p&gt;use strict in Javascript&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Always use strict&lt;/h1&gt;
+&lt;p&gt;Note here function name is starting with a capital letter unlike in while calling as a regular function where we use a camelcase.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;IIFE&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;IIFE(Immediately invoked function expressions), as the name suggest are function expressions which are immediately invoked.
+These were pre-dominant in ECMA 5 and earlier to define local scopes, however with invent of modules, they are sparingly used.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;greet&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;hello&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;hello&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;//[Function: hello]&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;good morning&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;greet&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Here since function keyword doesnot start the line so it is a function expression and not function declaration.
+Also since it is a function expression and it is not asssigned to any global variable, so no global property is being created,
+so it preserves the scope of variables declared inside the IIFE.&lt;/p&gt;</content><category term="Javascript"></category><category term="Javascript"></category></entry><entry><title>use strict in Javascript</title><link href="/2020/06/strict%20in%20Javascript/" rel="alternate"></link><published>2020-06-16T14:10:00+05:30</published><updated>2020-06-16T14:10:00+05:30</updated><author><name>Punit Jain</name></author><id>tag:None,2020-06-16:/2020/06/strict in Javascript/</id><summary type="html">&lt;p&gt;use strict in Javascript&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Always use strict&lt;/h1&gt;
 &lt;p&gt;It is always recommended to use 'strict' while you create javascript programs to avoid unexpected results.
 Lets see below example to understand one of the use-case:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;fullname&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;firstname&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;lastname&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
@@ -834,7 +854,7 @@ Once a variable is initialized using its value cannot be changed.&lt;/p&gt;
 
 
 &lt;p&gt;In above case we are not changing reference to const variable rather assigning key to object which is allowed.
-Same holds for array as well&lt;/p&gt;
+Same holds for array as well. As we saw const defines a block scope.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;anArray&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[];&lt;/span&gt;
 &lt;span class="nx"&gt;anArray&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;hello&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -863,11 +883,11 @@ lets understand with an example below:&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;If you see in above program var innerVar is still accessible outside the for loop and the scope of innerVar is defind by nearest function and in this case func.&lt;/p&gt;
+&lt;p&gt;If you see in above program var innerVar is still accessible outside the for loop and the scope of innerVar is defined by nearest function and in this case func.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;let&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;let is a recent addition in ES6 and solves the probem of scoping.&lt;/p&gt;
+&lt;p&gt;let is a recent addition in ES6 and solves the problem of scoping.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;globalVar&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;global&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;func&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
   &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;funcVar&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
@@ -882,8 +902,34 @@ lets understand with an example below:&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;here we have replaced var with let for variable innerVar.
-This restricts the scope of innerVar to for loop itself.&lt;/p&gt;</content><category term="Javascript"></category><category term="Javascript"></category></entry><entry><title>issubclass and isinstance</title><link href="/2020/05/Relation%20between%20issubclass%20and%20isinstance/" rel="alternate"></link><published>2020-05-12T16:00:00+05:30</published><updated>2020-05-12T16:00:00+05:30</updated><author><name>Punit Jain</name></author><id>tag:None,2020-05-12:/2020/05/Relation between issubclass and isinstance/</id><summary type="html">&lt;p&gt;issubclass and isinstance&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Relation between issubclass and isinstance&lt;/h1&gt;
+&lt;p&gt;Here we have replaced var with let for variable innerVar.
+This restricts the scope of innerVar to for loop itself.
+let has a block scoping just like const.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;function scope&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Everytime a function is created, an new execution context is created, which defines new scope for all its own variable environment.
+var is also function scoped as we saw above.&lt;/p&gt;
+&lt;p&gt;function expression works differently in terms of scope.
+Lets take an example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;greet&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;hello&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;good morning&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="nx"&gt;greet&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="nx"&gt;hello&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt; &lt;span class="c1"&gt;// ReferenceError: hello is not defined&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;if you see above, its pretty confusing why hello cannot be accessed in global scope.
+The reason is function expression hello is enclosed in its own scope and so is accessible in its own scope.
+So here below is variation of above example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;greet&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;hello&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;hello&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;//[Function: hello]&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;good morning&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;greet&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Javascript"></category><category term="Javascript"></category></entry><entry><title>issubclass and isinstance</title><link href="/2020/05/Relation%20between%20issubclass%20and%20isinstance/" rel="alternate"></link><published>2020-05-12T16:00:00+05:30</published><updated>2020-05-12T16:00:00+05:30</updated><author><name>Punit Jain</name></author><id>tag:None,2020-05-12:/2020/05/Relation between issubclass and isinstance/</id><summary type="html">&lt;p&gt;issubclass and isinstance&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Relation between issubclass and isinstance&lt;/h1&gt;
 &lt;p&gt;Normally for type checking most developers use type() function. The result of type function is matched with a hardcoded string. However it is recommended to use issubclass and isinstance to check if object is inherited fromma  particular class or a class has descended from another class.&lt;/p&gt;
 &lt;p&gt;Interestingly both issubclass and isinstance are related.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Shape&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;

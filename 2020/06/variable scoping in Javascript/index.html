@@ -128,7 +128,7 @@ Once a variable is initialized using its value cannot be changed.</p>
 
 
 <p>In above case we are not changing reference to const variable rather assigning key to object which is allowed.
-Same holds for array as well</p>
+Same holds for array as well. As we saw const defines a block scope.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">anArray</span> <span class="o">=</span> <span class="p">[];</span>
 <span class="nx">anArray</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;hello&#39;</span><span class="p">;</span>
 </code></pre></div>
@@ -157,11 +157,11 @@ lets understand with an example below:</p>
 </code></pre></div>
 
 
-<p>If you see in above program var innerVar is still accessible outside the for loop and the scope of innerVar is defind by nearest function and in this case func.</p>
+<p>If you see in above program var innerVar is still accessible outside the for loop and the scope of innerVar is defined by nearest function and in this case func.</p>
 <ul>
 <li><strong>let</strong></li>
 </ul>
-<p>let is a recent addition in ES6 and solves the probem of scoping.</p>
+<p>let is a recent addition in ES6 and solves the problem of scoping.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">globalVar</span> <span class="o">=</span> <span class="s1">&#39;global&#39;</span><span class="p">;</span>
 <span class="kd">function</span> <span class="nx">func</span><span class="p">()</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">funcVar</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
@@ -176,8 +176,34 @@ lets understand with an example below:</p>
 </code></pre></div>
 
 
-<p>here we have replaced var with let for variable innerVar.
-This restricts the scope of innerVar to for loop itself.</p>
+<p>Here we have replaced var with let for variable innerVar.
+This restricts the scope of innerVar to for loop itself.
+let has a block scoping just like const.</p>
+<ul>
+<li><strong>function scope</strong></li>
+</ul>
+<p>Everytime a function is created, an new execution context is created, which defines new scope for all its own variable environment.
+var is also function scoped as we saw above.</p>
+<p>function expression works differently in terms of scope.
+Lets take an example:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">greet</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">hello</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s1">&#39;good morning&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">greet</span><span class="p">();</span>
+<span class="nx">hello</span><span class="p">();</span> <span class="c1">// ReferenceError: hello is not defined</span>
+</code></pre></div>
+
+
+<p>if you see above, its pretty confusing why hello cannot be accessed in global scope.
+The reason is function expression hello is enclosed in its own scope and so is accessible in its own scope.
+So here below is variation of above example:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">greet</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">hello</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">hello</span><span class="p">);</span> <span class="c1">//[Function: hello]</span>
+    <span class="k">return</span> <span class="s1">&#39;good morning&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">greet</span><span class="p">());</span>
+</code></pre></div>
   </div>
   <div class="tag-cloud">
     <p>
