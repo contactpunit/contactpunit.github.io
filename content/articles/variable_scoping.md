@@ -38,7 +38,7 @@ const obj = {};
 obj['a'] = 1;
 ```
 In above case we are not changing reference to const variable rather assigning key to object which is allowed.
-Same holds for array as well
+Same holds for array as well. As we saw const defines a block scope.
 
 ```javascript
 const anArray = [];
@@ -70,11 +70,11 @@ console.assert(typeof innerVar === 'undefined' &&
          typeof funcVar === 'undefined')
 ```
 
-If you see in above program var innerVar is still accessible outside the for loop and the scope of innerVar is defind by nearest function and in this case func.
+If you see in above program var innerVar is still accessible outside the for loop and the scope of innerVar is defined by nearest function and in this case func.
 
 * **let**
 
-let is a recent addition in ES6 and solves the probem of scoping.
+let is a recent addition in ES6 and solves the problem of scoping.
 
 ```javascript
 var globalVar = 'global';
@@ -90,5 +90,35 @@ console.assert(typeof innerVar === 'undefined' &&
          typeof funcVar === 'undefined')
 ```
 
-here we have replaced var with let for variable innerVar.
+Here we have replaced var with let for variable innerVar.
 This restricts the scope of innerVar to for loop itself.
+let has a block scoping just like const.
+
+* **function scope**
+
+Everytime a function is created, an new execution context is created, which defines new scope for all its own variable environment.
+var is also function scoped as we saw above.
+
+function expression works differently in terms of scope.
+Lets take an example:
+
+```javascript
+var greet = function hello() {
+    return 'good morning';
+}
+
+greet();
+hello(); // ReferenceError: hello is not defined
+```
+
+if you see above, its pretty confusing why hello cannot be accessed in global scope.
+The reason is function expression hello is enclosed in its own scope and so is accessible in its own scope.
+So here below is variation of above example:
+
+```javascript
+var greet = function hello() {
+    console.log(hello); //[Function: hello]
+    return 'good morning';
+}
+console.log(greet());
+```

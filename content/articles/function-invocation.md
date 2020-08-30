@@ -24,11 +24,15 @@ function test(name) {
 }
 test('punit')
 ```
+If a line starts with a function keyword then it is a function declaration.
 
 b. As a function expression
 ```javascript
 (function (who) {console.log(who)})('punit');
 ```
+If a line doesnot start with function keyword then it might be a function expression.
+Sounds wierd right ? but this is the way we differentiate between function declaration and rest of the ways to define function.
+
 
 * **As a method**
 
@@ -55,3 +59,20 @@ function Demo() {
 d = new Demo();
 ```
 Note here function name is starting with a capital letter unlike in while calling as a regular function where we use a camelcase.
+
+* **IIFE**
+
+IIFE(Immediately invoked function expressions), as the name suggest are function expressions which are immediately invoked.
+These were pre-dominant in ECMA 5 and earlier to define local scopes, however with invent of modules, they are sparingly used.
+
+```javascript
+var greet = function hello() {
+    console.log(hello); //[Function: hello]
+    return 'good morning';
+}
+
+console.log(greet());
+```
+Here since function keyword doesnot start the line so it is a function expression and not function declaration.
+Also since it is a function expression and it is not asssigned to any global variable, so no global property is being created,
+so it preserves the scope of variables declared inside the IIFE.
