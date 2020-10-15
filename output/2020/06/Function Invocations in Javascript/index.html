@@ -77,6 +77,7 @@
       <a href="">    Home
 </a>
 
+      <a href="/">Home</a>
       <a href="/archives">Archives</a>
       <a href="/categories">Categories</a>
       <a href="/tags">Tags</a>
@@ -94,7 +95,7 @@
           Posted on Thu 18 June 2020 in <a href="/category/javascript.html">Javascript</a>
 
 
-        &#8226; 1 min read
+        &#8226; 2 min read
     </p>
   </header>
 
@@ -113,12 +114,13 @@
 <span class="nx">test</span><span class="p">(</span><span class="s1">&#39;punit&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-
+<p>If a line starts with a function keyword then it is a function declaration.</p>
 <p>b. As a function expression</p>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">who</span><span class="p">)</span> <span class="p">{</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">who</span><span class="p">)})(</span><span class="s1">&#39;punit&#39;</span><span class="p">);</span>
 </code></pre></div>
 
-
+<p>If a line doesnot start with function keyword then it might be a function expression.
+Sounds wierd right ? but this is the way we differentiate between function declaration and rest of the ways to define function.</p>
 <ul>
 <li><strong>As a method</strong></li>
 </ul>
@@ -128,7 +130,6 @@
 
 <span class="nx">test</span><span class="p">.</span><span class="nx">demo</span><span class="p">()</span>
 </code></pre></div>
-
 
 <ul>
 <li><strong>As a constructor</strong></li>
@@ -144,8 +145,23 @@ Example is as below:</p>
 <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Demo</span><span class="p">();</span>
 </code></pre></div>
 
-
 <p>Note here function name is starting with a capital letter unlike in while calling as a regular function where we use a camelcase.</p>
+<ul>
+<li><strong>IIFE</strong></li>
+</ul>
+<p>IIFE(Immediately invoked function expressions), as the name suggest are function expressions which are immediately invoked.
+These were pre-dominant in ECMA 5 and earlier to define local scopes, however with invent of modules, they are sparingly used.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">greet</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">hello</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">hello</span><span class="p">);</span> <span class="c1">//[Function: hello]</span>
+    <span class="k">return</span> <span class="s1">&#39;good morning&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">greet</span><span class="p">());</span>
+</code></pre></div>
+
+<p>Here since function keyword doesnot start the line so it is a function expression and not function declaration.
+Also since it is a function expression and it is not asssigned to any global variable, so no global property is being created,
+so it preserves the scope of variables declared inside the IIFE.</p>
   </div>
   <div class="tag-cloud">
     <p>

@@ -77,6 +77,7 @@
       <a href="">    Home
 </a>
 
+      <a href="/">Home</a>
       <a href="/archives">Archives</a>
       <a href="/categories">Categories</a>
       <a href="/tags">Tags</a>
@@ -139,7 +140,6 @@
 <span class="n">Elapsed</span> <span class="n">time</span> <span class="n">sleep_interval</span><span class="p">:</span> <span class="mf">10.000226974487305</span>
 </code></pre></div>
 
-
 <p>If you see here we created a decorator timing which is applied on sleep_interval function. Decorator takes sleep_interval as an argument and return another function which is reassigned to sleep_interval. So basically above decorator can also be applied as :</p>
 <p>sleep_interval = timing(sleep_interval)</p>
 <p>With new syntax of applying decorator, its clear for a reader to understand whats going on. The old syntax we just talked about might be missed by some readers and requires deep reading to understand.</p>
@@ -165,7 +165,6 @@ Lets take an example:</p>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">multiply5</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
 <span class="mi">35</span>
 </code></pre></div>
-
 
 <p>If you see here partial takes a callable ie multiply function and returns a callable which is finally called with one argument.</p>
   </div>

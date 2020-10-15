@@ -77,6 +77,7 @@
       <a href="">    Home
 </a>
 
+      <a href="/">Home</a>
       <a href="/archives">Archives</a>
       <a href="/categories">Categories</a>
       <a href="/tags">Tags</a>
@@ -113,7 +114,6 @@ Lets take an example to understand in detail:</p>
 <span class="p">}</span>
 </code></pre></div>
 
-
 <p>Here if you see subdemoobj object returns true for instance check for class frm which it is instantiated as well as prototype class as Demo is in prototype chain of subemoclass.</p>
 <p>however if we look at below example:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">Demo</span><span class="p">()</span> <span class="p">{};</span>
@@ -121,7 +121,6 @@ Lets take an example to understand in detail:</p>
 <span class="nx">Demo</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{};</span> <span class="c1">// changed prototype of demo constructor function</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span> <span class="k">instanceof</span> <span class="nx">Demo</span><span class="p">);</span> <span class="c1">// false</span>
 </code></pre></div>
-
 
 <p>If you see the result is 'false'. The reason being, we created object form Demo function and later we changed the prototype of Demo constructor to point to diff object.
 so on change of prototype, right side of instanceof ie. Demo here has a prototype {} which is not in prototype chain of obj ( which has Demo in its prototype change as it was created prior to making prototype change ).</p>
