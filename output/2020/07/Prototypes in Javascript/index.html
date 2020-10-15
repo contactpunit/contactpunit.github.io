@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="/theme/pygments/friendly.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
+
+
+    <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="My Tech Blogs Atom">
+
+
+
+
+
+<meta name="author" content="Punit Jain" />
+<meta name="description" content="Prototypes in Javascript" />
+<meta name="keywords" content="Javascript">
+
+<meta property="og:site_name" content="My Tech Blogs"/>
+<meta property="og:title" content="Prototypes in Javascript"/>
+<meta property="og:description" content="Prototypes in Javascript"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="/2020/07/Prototypes in Javascript/"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-07-05 18:20:00+05:30"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="/author/punit-jain.html">
+<meta property="article:section" content="Javascript"/>
+<meta property="article:tag" content="Javascript"/>
+<meta property="og:image" content="/images/profile.png">
+
+  <title>My Tech Blogs &ndash; Prototypes in Javascript</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="">
+        <img src="/images/profile.png" alt="Punit Jain" title="Punit Jain">
+      </a>
+      <h1><a href="">Punit Jain</a></h1>
+
+<p>Ideas and Thoughts</p>
+      <nav>
+        <ul class="list">
+          <li><a href="/about/#about">About</a></li>
+          <li><a href="/contact/#contact">Contact</a></li>
+
+          <li><a href="http://getpelican.com/" target="_blank">Pelican</a></li>
+          <li><a href="http://python.org/" target="_blank">Python.org</a></li>
+          <li><a href="http://jinja.pocoo.org/" target="_blank">Jinja2</a></li>
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-github" href="https://github.com/contactpunit" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-envelope" href="mailto:contactpunitjain@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a></li>
+        <li><a class="sc-linkedin" href="https://np.linkedin.com/in/punit-jain-25302823" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+    <nav>
+      <a href="">    Home
+</a>
+
+      <a href="/">Home</a>
+      <a href="/archives">Archives</a>
+      <a href="/categories">Categories</a>
+      <a href="/tags">Tags</a>
+
+      <a href="/feeds/all.atom.xml">    Atom
+</a>
+
+    </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="Prototypes in Javascript">Prototypes in Javascript</h1>
+    <p>
+          Posted on Sun 05 July 2020 in <a href="/category/javascript.html">Javascript</a>
+
+
+        &#8226; 1 min read
+    </p>
+  </header>
+
+
+  <div>
+    <h1>Prototype in Javascript</h1>
+<p>In javascript, prototype is used to implement inheritence.
+Taking an example below</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span><span class="o">:</span> <span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="o">:</span> <span class="s1">&#39;punit&#39;</span><span class="p">};</span> <span class="c1">// object obj has name ans value as its own properties. </span>
+<span class="kd">let</span> <span class="nx">subobj</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;profession&#39;</span><span class="o">:</span> <span class="s1">&#39;engineer&#39;</span><span class="p">};</span>
+<span class="kd">let</span> <span class="nx">other</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;place&#39;</span><span class="o">:</span> <span class="s1">&#39;IN&#39;</span><span class="p">};</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;name&#39;</span> <span class="k">in</span> <span class="nx">obj</span><span class="p">)</span> <span class="c1">// true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;profession&#39;</span> <span class="k">in</span> <span class="nx">obj</span><span class="p">)</span> <span class="c1">// false</span>
+</code></pre></div>
+
+<p>Here we have created 3 different objects (obj, subobj, subsubobj). Each object has access to its own properties assigned while creating objects.
+If we try to access 'profession' from obj, we get false as it has no property named 'profession'.
+We can create a inheritence relationship by setting prototype using setPrototypeOf method.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">Object</span><span class="p">.</span><span class="nx">setPrototypeOf</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">subobj</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;profession&#39;</span> <span class="k">in</span> <span class="nx">obj</span><span class="p">)</span> <span class="c1">// true</span>
+</code></pre></div>
+
+<p>This sets subobj as the prototype for obj.</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="/tag/javascript.html">Javascript</a>
+    </p>
+  </div>
+
+
+
+
+
+</article>
+
+    <footer>
+<p>&copy;  </p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " My Tech Blogs ",
+  "url" : "",
+  "image": "/images/profile.png",
+  "description": ""
+}
+</script>
+
+</body>
+</html>
