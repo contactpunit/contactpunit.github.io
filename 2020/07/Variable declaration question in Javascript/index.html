@@ -103,28 +103,25 @@
   <div>
     <h1>Question</h1>
 <p>Below is a program and guess what will be the output without looking into answer.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="mf">30</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="mf">10</span><span class="p">;</span>
 </code></pre></div>
-
 
 <p>Any idea what will be the output ?
 Answer - When you run it it gives below error:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">error</span><span class="o">:</span> <span class="nx">unknown</span><span class="o">:</span> <span class="nx">Identifier</span> <span class="s1">&#39;count&#39;</span> <span class="nx">has</span> <span class="nx">already</span> <span class="nx">been</span> <span class="nx">declared</span> <span class="p">(</span><span class="mi">2</span><span class="o">:</span><span class="mi">4</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="nx">error</span><span class="o">:</span> <span class="nx">unknown</span><span class="o">:</span> <span class="nx">Identifier</span> <span class="s1">&#39;count&#39;</span> <span class="nx">has</span> <span class="nx">already</span> <span class="nx">been</span> <span class="nx">declared</span> <span class="p">(</span><span class="mf">2</span><span class="o">:</span><span class="mf">4</span><span class="p">)</span>
 </code></pre></div>
-
 
 <p>So any idea why it generates this error ?
 Here we are declaring count with var and later once again using let.
 As let will not redefine a variable which already exists and is defined in same scope, an error is thrown.</p>
 <p>However if we make changes to our script and run as below:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">total</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="k">if</span><span class="p">(</span><span class="nx">total</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span> <span class="c1">// this works</span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="mf">10</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">total</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">total</span> <span class="o">===</span> <span class="mf">0</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="mf">20</span><span class="p">;</span> <span class="c1">// this works</span>
 <span class="p">}</span>
 </code></pre></div>
-
 
 <p>The above program works as expected as inner if loop defines a new block scope and the variable defined inside the if loop shadows the global count.</p>
   </div>

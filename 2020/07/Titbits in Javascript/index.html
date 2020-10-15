@@ -106,51 +106,47 @@
 <h2>Titbit 1 - Default parameter values</h2>
 <p>It is possible to specify default values for any arguments to function and it can appear before positional arguments as well.
  This is unlike in other languages like Python were positional params should come before named params.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">getResponse</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="nx">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">getResponse</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="nx">timeout</span><span class="o">=</span><span class="mf">10</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// function body defined here</span>
 <span class="p">}</span>
 
-<span class="nx">getResponse</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{});</span>
+<span class="nx">getResponse</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="mf">20</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{});</span>
 </code></pre></div>
-
 
 <h2>Titbit 2 - undefined as default value</h2>
 <p>We can pass 'undefined' as default value for named parameter.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">getResponse</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="nx">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">getResponse</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="nx">timeout</span><span class="o">=</span><span class="mf">10</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// function body defined here</span>
 <span class="p">}</span>
 
 <span class="nx">getResponse</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{});</span>
 </code></pre></div>
 
-
 <p>In above example timeout is assigned default value of 10.</p>
 <h2>Titbit 3 - passing function as default value</h2>
 <p>For the case below:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">variable</span>  <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">variable</span>  <span class="o">=</span> <span class="mf">1</span><span class="p">;</span>
 
 <span class="kd">function</span> <span class="nx">return_default_value</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mf">10</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="kd">function</span> <span class="nx">printvalue</span><span class="p">(</span><span class="nx">inputvalue</span><span class="o">=</span><span class="nx">return_default_value</span><span class="p">())</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">inputvalue</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="c1">// function call</span>
-<span class="nx">printvalue</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span> <span class="c1">//value passed to named param</span>
+<span class="nx">printvalue</span><span class="p">(</span><span class="mf">20</span><span class="p">);</span> <span class="c1">//value passed to named param</span>
 <span class="nx">printvalue</span><span class="p">();</span> <span class="c1">//causes return_default_value to be called and value returned assigned to inputvalue param</span>
 </code></pre></div>
-
 
 <p>In the above example first call to printvalue with an input param, assigns 20 to inputvalue.
 In second case without any parameter passed return_default_value function is called to get value to be assigned to inputvalue.
 Important point to note here is that function return_default_value is only called when no input parameter is passed.</p>
 <h2>Titbit 4 - Triple equals operator</h2>
 <p>Comparing below equality:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;1&#39;</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// true</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;1&#39;</span> <span class="o">===</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// false</span>
+<div class="highlight"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;1&#39;</span> <span class="o">==</span> <span class="mf">1</span><span class="p">);</span> <span class="c1">// true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;1&#39;</span> <span class="o">===</span> <span class="mf">1</span><span class="p">);</span> <span class="c1">// false</span>
 </code></pre></div>
-
 
 <p>Note that '==' double equals does a type coercion to do comparison. Always use triple equals to do equality checks.</p>
 <h2>Titbit 5 - isNaN check</h2>
@@ -161,21 +157,19 @@ Important point to note here is that function return_default_value is only calle
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">isNaN</span><span class="p">(</span><span class="nx">a</span><span class="p">));</span> <span class="c1">// true</span>
 </code></pre></div>
 
-
 <p>use isNaN to check for NaN property.</p>
 <h2>Titbit 6 - Object.is method</h2>
 <p>ECMA6 introduces Object.is method which solves lot of equality issues in prior versions:</p>
 <div class="highlight"><pre><span></span><code><span class="nx">a</span> <span class="o">=</span> <span class="kc">NaN</span><span class="p">;</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">is</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="kc">NaN</span><span class="p">));</span>     <span class="c1">// true</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">is</span><span class="p">(</span><span class="mi">5</span> <span class="o">==</span> <span class="s1">&#39;5&#39;</span><span class="p">));</span>   <span class="c1">// false</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">is</span><span class="p">(</span><span class="mf">5</span> <span class="o">==</span> <span class="s1">&#39;5&#39;</span><span class="p">));</span>   <span class="c1">// false</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">is</span><span class="p">(</span><span class="kc">NaN</span><span class="p">,</span> <span class="kc">NaN</span><span class="p">));</span>  <span class="c1">// true</span>
 </code></pre></div>
-
 
 <p>Object.is method returns true if the type as well as value is same for comparison.</p>
 <h2>Titbit 7 - Removing duplicates from an Array</h2>
 <p>In ECMA6 there is pretty easy way to remove duplicates from an array</p>
-<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">duplicatearray</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">];</span>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">duplicatearray</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="mf">4</span><span class="p">,</span><span class="mf">3</span><span class="p">,</span><span class="mf">4</span><span class="p">,</span><span class="mf">2</span><span class="p">,</span><span class="mf">2</span><span class="p">,</span><span class="mf">2</span><span class="p">,</span><span class="mf">7</span><span class="p">];</span>
 <span class="kd">function</span> <span class="nx">removeDuplicates</span><span class="p">(</span><span class="nx">items</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="p">[...</span><span class="k">new</span> <span class="nx">Set</span><span class="p">(</span><span class="nx">items</span><span class="p">)]</span>
 <span class="p">}</span>
@@ -183,26 +177,23 @@ Important point to note here is that function return_default_value is only calle
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">finalarray</span><span class="p">)</span> <span class="c1">// [1,4,3,2,7]</span>
 </code></pre></div>
 
-
 <p>Here we have used Set to remove duplicates and then passed the set output to array using spread operator.</p>
 <h2>Titbit 8 - Default parameter expression</h2>
 <p>As we are aware in EMA 6 we can provide a default variable declaration as below:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">first</span><span class="p">,</span> <span class="nx">second</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">first</span><span class="p">,</span> <span class="nx">second</span><span class="o">=</span><span class="mf">10</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="nx">first</span> <span class="o">+</span> <span class="nx">second</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 
-
 <p>Here if second is not provided, default value of 10 is taken.
 However the default value can also be a function call like below:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">returnvalue</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="mi">5</span><span class="p">;</span>
+  <span class="k">return</span> <span class="mf">5</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">first</span><span class="p">,</span> <span class="nx">second</span><span class="o">=</span><span class="nx">returnvalue</span><span class="p">())</span> <span class="p">{</span>
   <span class="k">return</span> <span class="nx">first</span> <span class="o">+</span> <span class="nx">second</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-
 
 <p>Here whatever value is returned from returnvalue function execution is assigned to second as default.
 Note here that the function call doesnot happen when function decleration is first parsed, rather it is called when returnvalue() is called.</p>
@@ -212,23 +203,20 @@ Note here that the function call doesnot happen when function decleration is fir
 <span class="p">}</span>
 </code></pre></div>
 
-
 <p>Here above if we have first argument dependent on later argument ( in this case second), would result in an undefined being set for first, rather than value of second.
 so calling add(undefined, 2) raises an error.
 This again brings us to interesting question.
 What happens when we call: </p>
-<div class="highlight"><pre><span></span><code>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">add</span><span class="p">(</span><span class="kc">undefined</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span> <span class="c1">// throws an error</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">add</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="c1">// 2</span>
+<div class="highlight"><pre><span></span><code>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">add</span><span class="p">(</span><span class="kc">undefined</span><span class="p">,</span> <span class="mf">2</span><span class="p">));</span> <span class="c1">// throws an error</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">add</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="mf">2</span><span class="p">))</span> <span class="c1">// 2</span>
 </code></pre></div>
-
 
 <p>This comparison tells that null doesnot account for no value being passed, rather null is taken as a value, which is different than passing undefined.</p>
 <h2>Titbit 9 - Returning object from arrow function</h2>
 <p>To return an object from an arrow function use below syntax:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">arrfunction</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">({</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="nx">age</span><span class="o">:</span> <span class="mi">42</span><span class="p">})</span>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">arrfunction</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">({</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="nx">age</span><span class="o">:</span> <span class="mf">42</span><span class="p">})</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arrfunction</span><span class="p">());</span>
 </code></pre></div>
-
 
 <p>Note the use of parenthesis around the arrow function.</p>
 <h2>Titbit 10 - nested object destructuring</h2>
@@ -245,16 +233,14 @@ What happens when we call: </p>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">house</span><span class="p">)</span> <span class="c1">// grand victoria</span>
 </code></pre></div>
 
-
 <h2>Titbit 11 - Swap values</h2>
 <p>In older version of javascript, to swap 2 variable values a temporary variable was required.
 However in ECMA6 it is easier and uses variable de-structuring to swap variable values.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mf">10</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="mf">20</span><span class="p">;</span>
 <span class="p">[</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="nx">b</span><span class="p">,</span> <span class="nx">a</span><span class="p">]</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">)</span> <span class="c1">// 20 10</span>
 </code></pre></div>
-
 
 <p>Make sure there is some value in variable as object destructuring throws error if the right side of destructuring as null or undefined in variable.</p>
 <h2>Titbit 12 - Destructuring nested arrays</h2>
@@ -268,25 +254,23 @@ console.log(darkcolor, lightcolor) // red skyblue</p>
 <span class="kd">let</span> <span class="p">[...</span><span class="nx">cloneNames</span><span class="p">]</span> <span class="o">=</span> <span class="nx">names</span><span class="p">;</span> 
 </code></pre></div>
 
-
 <h2>Titbit 14 - forEach in Sets Arrays and Maps</h2>
 <p>forEach method in different datatypes:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="mf">2</span><span class="p">,</span> <span class="mf">3</span><span class="p">,</span> <span class="mf">4</span><span class="p">];</span>
 <span class="nx">arr</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">elem</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">elem</span><span class="p">);</span>
 <span class="p">})</span>
 
-<span class="kd">let</span> <span class="nx">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">]);</span>
+<span class="kd">let</span> <span class="nx">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Set</span><span class="p">([</span><span class="mf">1</span><span class="p">,</span><span class="mf">3</span><span class="p">,</span><span class="mf">3</span><span class="p">,</span><span class="mf">3</span><span class="p">,</span><span class="mf">2</span><span class="p">,</span><span class="mf">4</span><span class="p">,</span><span class="mf">7</span><span class="p">]);</span>
 <span class="nx">set</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">elem</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">elem</span><span class="p">);</span>
 <span class="p">})</span>
 
-<span class="kd">let</span> <span class="nx">m</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">([[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;punit&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="mi">25</span><span class="p">]])</span>
+<span class="kd">let</span> <span class="nx">m</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">([[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;punit&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="mf">25</span><span class="p">]])</span>
 <span class="nx">m</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">k</span><span class="p">,</span> <span class="nx">v</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">k</span><span class="p">,</span> <span class="nx">v</span><span class="p">);</span> <span class="c1">// value, key of a map</span>
 <span class="p">})</span>
 </code></pre></div>
-
 
 <h2>Titbit 15 - for-of loop</h2>
 <p>we already know how for-of loop works. We also know how default iterator are used for builtin collections when for-of loop is used.
@@ -295,12 +279,11 @@ array - default iterator is values()
 set - default iterator is values()
 map - default iterator is entries()
 this feature can be used in destructuring of maps as below:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">m</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">([[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;punit&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="mi">42</span><span class="p">]]);</span>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">m</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">([[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;punit&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="mf">42</span><span class="p">]]);</span>
 <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="p">[</span><span class="nx">k</span><span class="p">,</span> <span class="nx">v</span><span class="p">]</span> <span class="k">of</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">k</span><span class="p">,</span> <span class="nx">v</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
-
 
 <p>if you see above example, we have not used m.entries() as entries is default iterator for map.
 this returns an array which is destructured in to [k, v] to capture key and corresponding value.</p>
@@ -310,7 +293,7 @@ Consider an example below:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">firstName</span><span class="o">:</span> <span class="s1">&#39;Punit&#39;</span><span class="p">,</span>
     <span class="nx">lastName</span><span class="o">:</span> <span class="s1">&#39;Jain&#39;</span><span class="p">,</span>
-    <span class="nx">age</span><span class="o">:</span> <span class="mi">27</span>
+    <span class="nx">age</span><span class="o">:</span> <span class="mf">27</span>
 <span class="p">}</span>
 
 <span class="k">for</span><span class="p">(</span> <span class="kd">let</span> <span class="nx">property</span> <span class="k">in</span> <span class="nx">person</span><span class="p">)</span> <span class="p">{</span>

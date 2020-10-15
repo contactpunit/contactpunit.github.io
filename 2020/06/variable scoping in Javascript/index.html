@@ -112,27 +112,24 @@
 </ul>
 <p>As the name suggests const keyword allows for initialization of variable at the time of declaration.
 Once a variable is initialized using its value cannot be changed.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">variable1</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">variable1</span> <span class="o">=</span> <span class="mf">10</span><span class="p">;</span>
 <span class="k">try</span> <span class="p">{</span>
-  <span class="nx">variable1</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+  <span class="nx">variable1</span> <span class="o">=</span> <span class="mf">20</span><span class="p">;</span>
 <span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;An exception raised on trying to change a const variable&#39;</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
 
-
 <p>However, there are some caveats you should be aware of :</p>
 <div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{};</span>
-<span class="nx">obj</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">obj</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1</span><span class="p">;</span>
 </code></pre></div>
-
 
 <p>In above case we are not changing reference to const variable rather assigning key to object which is allowed.
 Same holds for array as well. As we saw const defines a block scope.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">anArray</span> <span class="o">=</span> <span class="p">[];</span>
-<span class="nx">anArray</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;hello&#39;</span><span class="p">;</span>
+<span class="nx">anArray</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;hello&#39;</span><span class="p">;</span>
 </code></pre></div>
-
 
 <p>Now that we have seen const, the second keyword is var</p>
 <ul>
@@ -145,17 +142,16 @@ For var, variable is defined in the closest function or global lexical environme
 lets understand with an example below:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">globalVar</span> <span class="o">=</span> <span class="s1">&#39;global&#39;</span><span class="p">;</span>
 <span class="kd">function</span> <span class="nx">func</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">funcVar</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">funcVar</span> <span class="o">=</span> <span class="mf">10</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mf">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="mf">2</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
       <span class="kd">var</span> <span class="nx">innerVar</span> <span class="o">=</span> <span class="nx">funcVar</span> <span class="o">+</span> <span class="nx">i</span><span class="p">;</span>
   <span class="p">}</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">assert</span><span class="p">(</span><span class="nx">i</span> <span class="o">===</span> <span class="mi">2</span> <span class="o">&amp;&amp;</span> <span class="nx">funcVar</span> <span class="o">===</span> <span class="mi">10</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">assert</span><span class="p">(</span><span class="nx">i</span> <span class="o">===</span> <span class="mf">2</span> <span class="o">&amp;&amp;</span> <span class="nx">funcVar</span> <span class="o">===</span> <span class="mf">10</span><span class="p">);</span>
 <span class="p">}</span>
 <span class="nx">func</span><span class="p">();</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">assert</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">innerVar</span> <span class="o">===</span> <span class="s1">&#39;undefined&#39;</span> <span class="o">&amp;&amp;</span>
          <span class="k">typeof</span> <span class="nx">funcVar</span> <span class="o">===</span> <span class="s1">&#39;undefined&#39;</span><span class="p">)</span>
 </code></pre></div>
-
 
 <p>If you see in above program var innerVar is still accessible outside the for loop and the scope of innerVar is defined by nearest function and in this case func.</p>
 <ul>
@@ -164,8 +160,8 @@ lets understand with an example below:</p>
 <p>let is a recent addition in ES6 and solves the problem of scoping.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">globalVar</span> <span class="o">=</span> <span class="s1">&#39;global&#39;</span><span class="p">;</span>
 <span class="kd">function</span> <span class="nx">func</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">funcVar</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">funcVar</span> <span class="o">=</span> <span class="mf">10</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span><span class="o">=</span><span class="mf">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="mf">2</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
       <span class="kd">let</span> <span class="nx">innerVar</span> <span class="o">=</span> <span class="nx">funcVar</span> <span class="o">+</span> <span class="nx">i</span><span class="p">;</span>
   <span class="p">}</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">assert</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">innerVar</span> <span class="o">===</span> <span class="s1">&#39;undefined&#39;</span><span class="p">);</span>
@@ -174,7 +170,6 @@ lets understand with an example below:</p>
 <span class="nx">console</span><span class="p">.</span><span class="nx">assert</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">innerVar</span> <span class="o">===</span> <span class="s1">&#39;undefined&#39;</span> <span class="o">&amp;&amp;</span>
          <span class="k">typeof</span> <span class="nx">funcVar</span> <span class="o">===</span> <span class="s1">&#39;undefined&#39;</span><span class="p">)</span>
 </code></pre></div>
-
 
 <p>Here we have replaced var with let for variable innerVar.
 This restricts the scope of innerVar to for loop itself.
@@ -193,7 +188,6 @@ Lets take an example:</p>
 <span class="nx">greet</span><span class="p">();</span>
 <span class="nx">hello</span><span class="p">();</span> <span class="c1">// ReferenceError: hello is not defined</span>
 </code></pre></div>
-
 
 <p>if you see above, its pretty confusing why hello cannot be accessed in global scope.
 The reason is function expression hello is enclosed in its own scope and so is accessible in its own scope.

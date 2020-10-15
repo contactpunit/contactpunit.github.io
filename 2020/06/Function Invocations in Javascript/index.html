@@ -114,12 +114,10 @@
 <span class="nx">test</span><span class="p">(</span><span class="s1">&#39;punit&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p>If a line starts with a function keyword then it is a function declaration.</p>
 <p>b. As a function expression</p>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">who</span><span class="p">)</span> <span class="p">{</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">who</span><span class="p">)})(</span><span class="s1">&#39;punit&#39;</span><span class="p">);</span>
 </code></pre></div>
-
 
 <p>If a line doesnot start with function keyword then it might be a function expression.
 Sounds wierd right ? but this is the way we differentiate between function declaration and rest of the ways to define function.</p>
@@ -132,7 +130,6 @@ Sounds wierd right ? but this is the way we differentiate between function decla
 
 <span class="nx">test</span><span class="p">.</span><span class="nx">demo</span><span class="p">()</span>
 </code></pre></div>
-
 
 <ul>
 <li><strong>As a constructor</strong></li>
@@ -148,7 +145,6 @@ Example is as below:</p>
 <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Demo</span><span class="p">();</span>
 </code></pre></div>
 
-
 <p>Note here function name is starting with a capital letter unlike in while calling as a regular function where we use a camelcase.</p>
 <ul>
 <li><strong>IIFE</strong></li>
@@ -162,7 +158,6 @@ These were pre-dominant in ECMA 5 and earlier to define local scopes, however wi
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">greet</span><span class="p">());</span>
 </code></pre></div>
-
 
 <p>Here since function keyword doesnot start the line so it is a function expression and not function declaration.
 Also since it is a function expression and it is not asssigned to any global variable, so no global property is being created,

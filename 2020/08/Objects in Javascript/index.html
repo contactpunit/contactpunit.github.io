@@ -115,21 +115,18 @@ See below example:</p>
 <span class="p">};</span>
 </code></pre></div>
 
-
 <p>here person object is created by assigning values to properties of an object.
 These are kind of static. This object can be changed later by adding / removing/ modifying existing object like below:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">person</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="mi">24</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="nx">person</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="mf">24</span><span class="p">;</span>
 <span class="nx">person</span><span class="p">.</span><span class="nx">speak</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="s1">&#39;speaks english&#39;</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 
-
 <p>This adds properties to the object. We can inspect it py printing various property values:</p>
 <div class="highlight"><pre><span></span><code><span class="nx">onsole</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">firstName</span><span class="p">);</span> <span class="c1">// Punit</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">speak</span><span class="p">())</span> <span class="c1">// speaks english</span>
 </code></pre></div>
-
 
 <p>However if we need to create multiple objects it is not feasible to create all objects manually.
 We need a kind of a blueprint to create objects.
@@ -145,13 +142,12 @@ This brings us to creating objects using constructor functions.</p>
     <span class="p">};</span>
 <span class="p">}</span>
 
-<span class="kd">let</span> <span class="nx">person1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s1">&#39;Punit&#39;</span><span class="p">,</span> <span class="s1">&#39;Jain&#39;</span><span class="p">,</span> <span class="mi">24</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">person2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s1">&#39;Jack&#39;</span><span class="p">,</span> <span class="s1">&#39;Taylor&#39;</span><span class="p">,</span> <span class="mi">28</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">person1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s1">&#39;Punit&#39;</span><span class="p">,</span> <span class="s1">&#39;Jain&#39;</span><span class="p">,</span> <span class="mf">24</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">person2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s1">&#39;Jack&#39;</span><span class="p">,</span> <span class="s1">&#39;Taylor&#39;</span><span class="p">,</span> <span class="mf">28</span><span class="p">);</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person1</span><span class="p">.</span><span class="nx">firstName</span><span class="p">);</span> <span class="c1">// Punit</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person2</span><span class="p">.</span><span class="nx">firstName</span><span class="p">);</span> <span class="c1">// Jack</span>
 </code></pre></div>
-
 
 <p>As you can see above we created object using new operator and notice properties are created on tis object using this. this always refer to an object in the context of the code you are executing at that time.
 Also new creates a new empty javascript object and sets the context of this to that new object and then calls the constructor function which is Person in this case.</p>
@@ -165,7 +161,6 @@ Let us see how we can achieve the same using Object.create.</p>
     <span class="p">}</span>
     <span class="p">);</span>
 </code></pre></div>
-
 
 <p>In above example we have used Object.create method to create same object.
 The first parameter to Object.create is prototype to be used for new object, then followed by various property descriptors for each of the property on this object.
