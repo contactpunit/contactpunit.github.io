@@ -5,35 +5,35 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/</loc>
-<lastmod>2020-10-15T07:07:19-00:00</lastmod>
+<lastmod>2020-10-22T14:55:26-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
 
 <url>
 <loc>/tags.html</loc>
-<lastmod>2020-10-15T07:07:19-00:00</lastmod>
+<lastmod>2020-10-22T14:55:26-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
 
 <url>
 <loc>/categories.html</loc>
-<lastmod>2020-10-15T07:07:19-00:00</lastmod>
+<lastmod>2020-10-22T14:55:26-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
 
 <url>
 <loc>/authors.html</loc>
-<lastmod>2020-10-15T07:07:19-00:00</lastmod>
+<lastmod>2020-10-22T14:55:26-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
 
 <url>
 <loc>/archives.html</loc>
-<lastmod>2020-10-15T07:07:19-00:00</lastmod>
+<lastmod>2020-10-22T14:55:26-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
@@ -50,6 +50,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <lastmod>2020-05-16T03:27:00+05:30</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
+</url>
+
+<url>
+<loc>/2020/08/Combinators in CSS/</loc>
+<lastmod>2020-08-22T07:58:00+05:30</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.6</priority>
 </url>
 
 <url>
@@ -180,7 +187,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/category/javascript.html</loc>
-<lastmod>2020-08-18T12:58:00+05:53</lastmod>
+<lastmod>2020-08-22T07:58:00+05:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
@@ -188,6 +195,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>/category/python.html</loc>
 <lastmod>2020-05-12T16:00:00+05:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.6</priority>
+</url>
+
+<url>
+<loc>/tag/css.html</loc>
+<lastmod>2020-08-22T07:58:00+05:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
@@ -208,7 +222,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/author/punit-jain.html</loc>
-<lastmod>2020-08-18T12:58:00+05:53</lastmod>
+<lastmod>2020-08-22T07:58:00+05:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
