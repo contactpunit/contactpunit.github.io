@@ -40,4 +40,3 @@ for(let x of collection) {
 4
 ```
 if you see above example we have created custom iterable traverses already defined iterable items.
-
