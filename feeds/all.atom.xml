@@ -1,5 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>My Tech Blogs</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2020-11-08T19:54:00+05:30</updated><subtitle>Ideas and Thoughts</subtitle><entry><title>Array.from in Javascript</title><link href="/2020/11/Arrayfrom%20in%20Javascript/" rel="alternate"></link><published>2020-11-08T19:54:00+05:30</published><updated>2020-11-08T19:54:00+05:30</updated><author><name>Punit Jain</name></author><id>tag:None,2020-11-08:/2020/11/Arrayfrom in Javascript/</id><summary type="html">&lt;p&gt;Array.from in Javascript&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Array.from method in Javascript&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>My Tech Blogs</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2020-11-14T10:38:00+05:30</updated><subtitle>Ideas and Thoughts</subtitle><entry><title>Abstract Classes in Javascript</title><link href="/2020/11/Abstract%20Classes%20in%20Javascript/" rel="alternate"></link><published>2020-11-14T10:38:00+05:30</published><updated>2020-11-14T10:38:00+05:30</updated><author><name>Punit Jain</name></author><id>tag:None,2020-11-14:/2020/11/Abstract Classes in Javascript/</id><summary type="html">&lt;p&gt;Abstract Classes in Javascript&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Abstract classes in Javascript&lt;/h1&gt;
+&lt;p&gt;ECMA 6 introduced a new keyword to create classes like they are created in other languages.
+The syntax and inner details of classes is discussed in a separate post altogether, as it a big subject on its own,
+however here we will discuss on how to create an abstract base class in javascript.&lt;/p&gt;
+&lt;p&gt;An abstract base class is a class which cannot be instantiated, however can be inherited.
+Objects are created from inherited class.&lt;/p&gt;
+&lt;p&gt;The way to create abstract class is as below:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;Car&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nx"&gt;constructor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;numTypres&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;numWindows&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;numTypres&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;numTypres&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;numWindows&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;numWindows&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;target&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="nx"&gt;Car&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="k"&gt;throw&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nb"&gt;Error&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;base class cannot be instantiated&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;Ford&lt;/span&gt; &lt;span class="kr"&gt;extends&lt;/span&gt; &lt;span class="nx"&gt;Car&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nx"&gt;constructor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;numTypres&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;numWindows&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="kr"&gt;super&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;numTypres&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;numWindows&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;c&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;Car&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;6&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;// throw new Error(&amp;#39;base class cannot be instantiated&amp;#39;)&lt;/span&gt;
+            &lt;span class="o"&gt;^&lt;/span&gt;
+&lt;span class="c1"&gt;//Error: base class cannot be instantiated&lt;/span&gt;
+
+&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;f&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;Ford&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;6&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;f&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;// Ford { numTypres: 4, numWindows: 6 }&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In the above code Car is created as a base class. Under constructor function we are checking for
+new.target, which is added in ecma6 to determine how the class is being invoked.&lt;/p&gt;
+&lt;p&gt;new.target is mostly used to make sure class is instantiated using new operator and target of new is 
+one against which test is being performed.&lt;/p&gt;
+&lt;p&gt;In the first case when base class (Car), is called with new, it throws as error
+as the new.target matches 'Car'.&lt;/p&gt;
+&lt;p&gt;Then class Ford is derived from Car using extends.
+When an instance of Ford is created, it succeeds, as new.target in that case
+matches Ford.&lt;/p&gt;</content><category term="Javascript"></category><category term="Javascript"></category></entry><entry><title>Array.from in Javascript</title><link href="/2020/11/Arrayfrom%20in%20Javascript/" rel="alternate"></link><published>2020-11-08T19:54:00+05:30</published><updated>2020-11-08T19:54:00+05:30</updated><author><name>Punit Jain</name></author><id>tag:None,2020-11-08:/2020/11/Arrayfrom in Javascript/</id><summary type="html">&lt;p&gt;Array.from in Javascript&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Array.from method in Javascript&lt;/h1&gt;
 &lt;p&gt;ECMA 6 introduced a new method Array.from which can be used to traverse over any iterable or array like object,
 to convert it into an array.&lt;/p&gt;
 &lt;p&gt;Earlier user had to use Array prototype method as below:&lt;/p&gt;

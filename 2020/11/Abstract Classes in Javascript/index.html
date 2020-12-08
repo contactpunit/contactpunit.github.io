@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="/theme/pygments/friendly.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
+
+
+    <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="My Tech Blogs Atom">
+
+
+
+
+
+<meta name="author" content="Punit Jain" />
+<meta name="description" content="Abstract Classes in Javascript" />
+<meta name="keywords" content="Javascript">
+
+<meta property="og:site_name" content="My Tech Blogs"/>
+<meta property="og:title" content="Abstract Classes in Javascript"/>
+<meta property="og:description" content="Abstract Classes in Javascript"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="/2020/11/Abstract Classes in Javascript/"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-11-14 10:38:00+05:30"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="/author/punit-jain.html">
+<meta property="article:section" content="Javascript"/>
+<meta property="article:tag" content="Javascript"/>
+<meta property="og:image" content="/images/profile.png">
+
+  <title>My Tech Blogs &ndash; Abstract Classes in Javascript</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="">
+        <img src="/images/profile.png" alt="Punit Jain" title="Punit Jain">
+      </a>
+      <h1><a href="">Punit Jain</a></h1>
+
+<p>Ideas and Thoughts</p>
+      <nav>
+        <ul class="list">
+          <li><a href="/about/#about">About</a></li>
+          <li><a href="/contact/#contact">Contact</a></li>
+
+          <li><a href="http://getpelican.com/" target="_blank">Pelican</a></li>
+          <li><a href="http://python.org/" target="_blank">Python.org</a></li>
+          <li><a href="http://jinja.pocoo.org/" target="_blank">Jinja2</a></li>
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-github" href="https://github.com/contactpunit" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-envelope" href="mailto:contactpunitjain@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a></li>
+        <li><a class="sc-linkedin" href="https://np.linkedin.com/in/punit-jain-25302823" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+    <nav>
+      <a href="">    Home
+</a>
+
+      <a href="/">Home</a>
+      <a href="/archives">Archives</a>
+      <a href="/categories">Categories</a>
+      <a href="/tags">Tags</a>
+
+      <a href="/feeds/all.atom.xml">    Atom
+</a>
+
+    </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="Abstract Classes in Javascript">Abstract Classes in Javascript</h1>
+    <p>
+          Posted on Sat 14 November 2020 in <a href="/category/javascript.html">Javascript</a>
+
+
+        &#8226; 1 min read
+    </p>
+  </header>
+
+
+  <div>
+    <h1>Abstract classes in Javascript</h1>
+<p>ECMA 6 introduced a new keyword to create classes like they are created in other languages.
+The syntax and inner details of classes is discussed in a separate post altogether, as it a big subject on its own,
+however here we will discuss on how to create an abstract base class in javascript.</p>
+<p>An abstract base class is a class which cannot be instantiated, however can be inherited.
+Objects are created from inherited class.</p>
+<p>The way to create abstract class is as below:</p>
+<div class="highlight"><pre><span></span><code><span class="kr">class</span> <span class="nx">Car</span> <span class="p">{</span>
+    <span class="nx">constructor</span><span class="p">(</span><span class="nx">numTypres</span><span class="p">,</span> <span class="nx">numWindows</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">numTypres</span> <span class="o">=</span> <span class="nx">numTypres</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">numWindows</span> <span class="o">=</span> <span class="nx">numWindows</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">new</span><span class="p">.</span><span class="nx">target</span> <span class="o">===</span> <span class="nx">Car</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;base class cannot be instantiated&#39;</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">class</span> <span class="nx">Ford</span> <span class="kr">extends</span> <span class="nx">Car</span> <span class="p">{</span>
+    <span class="nx">constructor</span><span class="p">(</span><span class="nx">numTypres</span><span class="p">,</span> <span class="nx">numWindows</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kr">super</span><span class="p">(</span><span class="nx">numTypres</span><span class="p">,</span> <span class="nx">numWindows</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">c</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Car</span><span class="p">(</span><span class="mf">4</span><span class="p">,</span> <span class="mf">6</span><span class="p">)</span>
+
+<span class="c1">// throw new Error(&#39;base class cannot be instantiated&#39;)</span>
+            <span class="o">^</span>
+<span class="c1">//Error: base class cannot be instantiated</span>
+
+<span class="kr">const</span> <span class="nx">f</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Ford</span><span class="p">(</span><span class="mf">4</span><span class="p">,</span> <span class="mf">6</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">f</span><span class="p">)</span>
+
+<span class="c1">// Ford { numTypres: 4, numWindows: 6 }</span>
+</code></pre></div>
+
+<p>In the above code Car is created as a base class. Under constructor function we are checking for
+new.target, which is added in ecma6 to determine how the class is being invoked.</p>
+<p>new.target is mostly used to make sure class is instantiated using new operator and target of new is 
+one against which test is being performed.</p>
+<p>In the first case when base class (Car), is called with new, it throws as error
+as the new.target matches 'Car'.</p>
+<p>Then class Ford is derived from Car using extends.
+When an instance of Ford is created, it succeeds, as new.target in that case
+matches Ford.</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="/tag/javascript.html">Javascript</a>
+    </p>
+  </div>
+
+
+
+
+
+</article>
+
+    <footer>
+<p>&copy;  </p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " My Tech Blogs ",
+  "url" : "",
+  "image": "/images/profile.png",
+  "description": ""
+}
+</script>
+
+</body>
+</html>
