@@ -1,5 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>My Tech Blogs</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2020-10-22T07:58:00+05:30</updated><subtitle>Ideas and Thoughts</subtitle><entry><title>Combinators in CSS</title><link href="/2020/10/Combinators%20in%20CSS/" rel="alternate"></link><published>2020-10-22T07:58:00+05:30</published><updated>2020-10-22T07:58:00+05:30</updated><author><name>Punit Jain</name></author><id>tag:None,2020-10-22:/2020/10/Combinators in CSS/</id><summary type="html">&lt;p&gt;Combinators in CSS&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Combinators in CSS&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>My Tech Blogs</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2020-11-08T19:54:00+05:30</updated><subtitle>Ideas and Thoughts</subtitle><entry><title>Array.from in Javascript</title><link href="/2020/11/Arrayfrom%20in%20Javascript/" rel="alternate"></link><published>2020-11-08T19:54:00+05:30</published><updated>2020-11-08T19:54:00+05:30</updated><author><name>Punit Jain</name></author><id>tag:None,2020-11-08:/2020/11/Arrayfrom in Javascript/</id><summary type="html">&lt;p&gt;Array.from in Javascript&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Array.from method in Javascript&lt;/h1&gt;
+&lt;p&gt;ECMA 6 introduced a new method Array.from which can be used to traverse over any iterable or array like object,
+to convert it into an array.&lt;/p&gt;
+&lt;p&gt;Earlier user had to use Array prototype method as below:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;convertToArray&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;Array&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;prototype&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;slice&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;call&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;arguments&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In the above code method convertToArray is used to convert array like objects ( like arguments or NodeList ),
+to an array.&lt;/p&gt;
+&lt;p&gt;This does work, however ECMA6 introduced a new method on Array prototype called 'from' which works on any iterable
+and converts it to an Array, using its default iterator.&lt;/p&gt;
+&lt;p&gt;The last statement 'using its default iterator' is important to understand, so I will explain it in more detail.
+Lets take few examples below:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;let&lt;/span&gt; &lt;span class="nx"&gt;m&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;Map&lt;/span&gt;&lt;span class="p"&gt;([[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;a&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;b&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]]);&lt;/span&gt;
+&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;Array&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;from&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;m&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+&lt;span class="c1"&gt;//  [ &amp;#39;a&amp;#39;, 1 ], [ &amp;#39;b&amp;#39;, 2 ] ]&lt;/span&gt;
+
+&lt;span class="kd"&gt;let&lt;/span&gt; &lt;span class="nx"&gt;n&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;Set&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mf"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;7&lt;/span&gt;&lt;span class="p"&gt;]);&lt;/span&gt;
+&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;Array&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;from&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;n&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+&lt;span class="c1"&gt;// [ 1, 3, 5, 7 ]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In first case map is an iterable object and is passed to Array.from.
+Array.from will use map's default iterator, which is entries().
+So Array.from() will call entries() on map and convert it to array.&lt;/p&gt;
+&lt;p&gt;In second case set, which is an iterable is passed to Array.from.
+Array.from will use default iterator for Set, which is values() and 
+create an array from it.&lt;/p&gt;
+&lt;p&gt;Now let's consider some custom object as below:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;let&lt;/span&gt; &lt;span class="nx"&gt;p&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nx"&gt;items&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mf"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;14&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;Symbol&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;iterator&lt;/span&gt;&lt;span class="p"&gt;]()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;values&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="p"&gt;},&lt;/span&gt;
+    &lt;span class="nx"&gt;values&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;items&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;let&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;items&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="k"&gt;yield&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;Array&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;from&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;p&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+&lt;span class="c1"&gt;//[ 1,  4,  6, 8, 10, 12, 14 ]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In the above example we have created a custom iterable which returns values() as default iterator.
+As a result o/p is an Array using values() iterator on calling Array.from().&lt;/p&gt;</content><category term="Javascript"></category><category term="Javascript"></category></entry><entry><title>Combinators in CSS</title><link href="/2020/10/Combinators%20in%20CSS/" rel="alternate"></link><published>2020-10-22T07:58:00+05:30</published><updated>2020-10-22T07:58:00+05:30</updated><author><name>Punit Jain</name></author><id>tag:None,2020-10-22:/2020/10/Combinators in CSS/</id><summary type="html">&lt;p&gt;Combinators in CSS&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Combinators in CSS&lt;/h1&gt;
 &lt;p&gt;There are 4 key combinators in CSS:
 1. Adjacent Sibling
 2. General Sibling
