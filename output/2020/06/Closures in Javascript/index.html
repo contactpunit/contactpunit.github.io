@@ -95,7 +95,6 @@
           Posted on Wed 10 June 2020 in <a href="/category/javascript.html">Javascript</a>
 
 
-        &#8226; 2 min read
     </p>
   </header>
 
@@ -110,7 +109,7 @@ This helps to call the declared function even after the scope in which it was de
 <li><strong>Maintain Private variables</strong></li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">Counter</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">counts</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">counts</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
   <span class="k">this</span><span class="p">.</span><span class="nx">getCounts</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">counts</span><span class="p">;</span>
   <span class="p">};</span>
@@ -124,9 +123,9 @@ This helps to call the declared function even after the scope in which it was de
 <span class="kd">var</span> <span class="nx">counterObject</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Counter</span><span class="p">();</span>
 <span class="nx">counterObject</span><span class="p">.</span><span class="nx">incrementValue</span><span class="p">();</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">assert</span><span class="p">(</span><span class="nx">counterObject</span><span class="p">.</span><span class="nx">counts</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">assert</span><span class="p">(</span><span class="nx">counterObject</span><span class="p">.</span><span class="nx">getCounts</span><span class="p">()</span> <span class="o">===</span> <span class="mf">1</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">assert</span><span class="p">(</span><span class="nx">counterObject</span><span class="p">.</span><span class="nx">getCounts</span><span class="p">()</span> <span class="o">===</span> <span class="mi">1</span><span class="p">);</span>
 <span class="nx">counterObject</span><span class="p">.</span><span class="nx">incrementValue</span><span class="p">();</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">assert</span><span class="p">(</span><span class="nx">counterObject</span><span class="p">.</span><span class="nx">getCounts</span><span class="p">()</span> <span class="o">===</span> <span class="mf">2</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">assert</span><span class="p">(</span><span class="nx">counterObject</span><span class="p">.</span><span class="nx">getCounts</span><span class="p">()</span> <span class="o">===</span> <span class="mi">2</span><span class="p">);</span>
 </code></pre></div>
 
 <p>If we see the above code, we create a function Counter to act like a constructor.

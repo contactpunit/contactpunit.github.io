@@ -95,7 +95,6 @@
           Posted on Sun 16 August 2020 in <a href="/category/javascript.html">Javascript</a>
 
 
-        &#8226; 4 min read
     </p>
   </header>
 
@@ -113,7 +112,7 @@ However, in javascript terms iterators should follow some rules:
 6. If all values are returned, 'value' of undefined is returned going forward.</p>
 <p>We can create an iterator manually as well. Below is an example of one of the iterators:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">iterators</span><span class="p">(</span><span class="nx">items</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="k">return</span> <span class="p">{</span>
         <span class="nx">next</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
             <span class="kd">var</span> <span class="nx">done</span> <span class="o">=</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&gt;=</span> <span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
@@ -125,7 +124,7 @@ However, in javascript terms iterators should follow some rules:
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
-<span class="kd">let</span> <span class="nx">sampleIterator</span> <span class="o">=</span> <span class="nx">iterators</span><span class="p">([</span><span class="mf">1</span><span class="p">,</span><span class="mf">2</span><span class="p">,</span><span class="mf">3</span><span class="p">,</span><span class="mf">4</span><span class="p">]);</span>
+<span class="kd">let</span> <span class="nx">sampleIterator</span> <span class="o">=</span> <span class="nx">iterators</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sampleIterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sampleIterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sampleIterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span>
@@ -133,10 +132,10 @@ However, in javascript terms iterators should follow some rules:
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sampleIterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span>
 
 <span class="c1">// output</span>
-<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mf">1</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
-<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mf">2</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
-<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mf">3</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
-<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mf">4</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
 <span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="kc">undefined</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}</span>
 </code></pre></div>
 
@@ -154,10 +153,10 @@ Generators have sme rules similar to iterators:
 <p>ets take previous example where we created iterator with hand and convert it to use generator.
 The simplest approach is :</p>
 <div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="o">*</span> <span class="nx">generator</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">yield</span> <span class="mf">1</span><span class="p">;</span>
-    <span class="k">yield</span> <span class="mf">2</span><span class="p">;</span>
-    <span class="k">yield</span> <span class="mf">3</span><span class="p">;</span>
-    <span class="k">yield</span> <span class="mf">4</span><span class="p">;</span>
+    <span class="k">yield</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">yield</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="k">yield</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="k">yield</span> <span class="mi">4</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="kd">let</span> <span class="nx">iterator</span> <span class="o">=</span> <span class="nx">generator</span><span class="p">();</span>
@@ -168,22 +167,22 @@ The simplest approach is :</p>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span>
 
 <span class="c1">//output</span>
-<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mf">1</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
-<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mf">2</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
-<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mf">3</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
-<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mf">4</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
 <span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="kc">undefined</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}</span>
 </code></pre></div>
 
 <p>Same as previous example, however here we have hardcoded values to be produced inside the generator function.
 Lets try passing items as input like in first example.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="o">*</span> <span class="nx">generator</span><span class="p">(</span><span class="nx">items</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span><span class="o">=</span><span class="mf">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">yield</span> <span class="nx">items</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kd">let</span> <span class="nx">iterator</span> <span class="o">=</span> <span class="nx">generator</span><span class="p">([</span><span class="mf">1</span><span class="p">,</span><span class="mf">2</span><span class="p">,</span><span class="mf">3</span><span class="p">,</span><span class="mf">4</span><span class="p">]);</span>
+<span class="kd">let</span> <span class="nx">iterator</span> <span class="o">=</span> <span class="nx">generator</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span>
@@ -191,22 +190,22 @@ Lets try passing items as input like in first example.</p>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span>
 
 <span class="c1">// output</span>
-<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mf">1</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
-<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mf">2</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
-<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mf">3</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
-<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mf">4</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
 <span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="kc">undefined</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}</span>
 </code></pre></div>
 
 <h1>Generator Function Expressions</h1>
 <p>function expressions can be used to create generators as well.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">gen</span> <span class="o">=</span> <span class="kd">function</span> <span class="o">*</span> <span class="nx">generator</span><span class="p">(</span><span class="nx">items</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">for</span><span class="p">(</span><span class="nx">i</span><span class="o">=</span><span class="mf">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span><span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">yield</span> <span class="nx">items</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kd">let</span> <span class="nx">iterator</span> <span class="o">=</span> <span class="nx">gen</span><span class="p">([</span><span class="mf">1</span><span class="p">,</span><span class="mf">2</span><span class="p">,</span><span class="mf">3</span><span class="p">,</span><span class="mf">4</span><span class="p">]);</span>
+<span class="kd">let</span> <span class="nx">iterator</span> <span class="o">=</span> <span class="nx">gen</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span>
@@ -219,10 +218,10 @@ We are calculating length of iterable inside the loop. Generators are meant to t
 This approach is not productive as imagine if we have a million item inside items array, to calculate the length of items, items will need to be loaded in memory which defeats the purpose.
 One approach is to look for done property each time we traverse the loop and when done is true we break out, like below:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="o">*</span> <span class="nx">generator</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">yield</span> <span class="mf">1</span><span class="p">;</span>
-    <span class="k">yield</span> <span class="mf">2</span><span class="p">;</span>
-    <span class="k">yield</span> <span class="mf">3</span><span class="p">;</span>
-    <span class="k">yield</span> <span class="mf">4</span><span class="p">;</span>
+    <span class="k">yield</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">yield</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="k">yield</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="k">yield</span> <span class="mi">4</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="kd">let</span> <span class="nx">iterator</span> <span class="o">=</span> <span class="nx">generator</span><span class="p">()</span>
@@ -235,10 +234,10 @@ One approach is to look for done property each time we traverse the loop and whe
 <span class="p">}</span>
 
 <span class="c1">// output</span>
-<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mf">1</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
-<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mf">2</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
-<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mf">3</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
-<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mf">4</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
 </code></pre></div>
 
 <p>However using while loop and everytime checking for value of done property, as well as creating an iterator first from generator function is cumbersome process.
@@ -251,16 +250,16 @@ There are some characterstics of iterable which you should be aware of:
 2. when we use for-of loop, it calls Symbol.iterator method on iterable to retrieve an iterator.
 3. Then iterator.next() method is called and done property is checked if it is false or true. 
 4. If false iterator.next() is caled until true is returned for done property. That's when loop stops execution. </p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">items</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="mf">2</span><span class="p">,</span><span class="mf">2</span><span class="p">,</span><span class="mf">3</span><span class="p">,</span><span class="mf">4</span><span class="p">];</span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">items</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">];</span>
 <span class="k">for</span> <span class="p">(</span> <span class="kd">let</span> <span class="nx">i</span> <span class="k">of</span> <span class="nx">items</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
 <span class="p">}</span>
 <span class="c1">// output</span>
-<span class="mf">1</span>
-<span class="mf">2</span>
-<span class="mf">2</span>
-<span class="mf">3</span>
-<span class="mf">4</span>
+<span class="mi">1</span>
+<span class="mi">2</span>
+<span class="mi">2</span>
+<span class="mi">3</span>
+<span class="mi">4</span>
 </code></pre></div>
   </div>
   <div class="tag-cloud">

@@ -95,7 +95,6 @@
           Posted on Sun 09 August 2020 in <a href="/category/javascript.html">Javascript</a>
 
 
-        &#8226; 1 min read
     </p>
   </header>
 
@@ -108,23 +107,23 @@ The way it works is:
 like in case of map it is entries(), incase of set values() etc.
 2. Once it determines the default iterator, it reads all values rom iterators and fills in, inside an array</p>
 <p>This can be explained with example below:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">m</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">([[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;punit&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="mf">42</span><span class="p">]]);</span>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">m</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">([[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;punit&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="mi">42</span><span class="p">]]);</span>
 <span class="kd">let</span> <span class="nx">mapArray</span> <span class="o">=</span> <span class="p">[...</span><span class="nx">m</span><span class="p">]</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mapArray</span><span class="p">)</span> <span class="c1">// calls default iterator entries() on map.</span>
 
 
-<span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="mf">2</span><span class="p">,</span><span class="mf">3</span><span class="p">,</span><span class="mf">4</span><span class="p">];</span>
+<span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">];</span>
 <span class="kd">let</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[...</span><span class="nx">arr</span><span class="p">]</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">array</span><span class="p">);</span>
 
-<span class="kd">let</span> <span class="nx">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Set</span><span class="p">([</span><span class="mf">1</span><span class="p">,</span><span class="mf">2</span><span class="p">,</span><span class="mf">3</span><span class="p">,</span><span class="mf">4</span><span class="p">,</span><span class="mf">6</span><span class="p">,</span><span class="mf">6</span><span class="p">,</span><span class="mf">6</span><span class="p">,</span><span class="mf">4</span><span class="p">]);</span>
+<span class="kd">let</span> <span class="nx">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">]);</span>
 <span class="kd">let</span> <span class="nx">setArray</span> <span class="o">=</span> <span class="p">[...</span><span class="nx">set</span><span class="p">];</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">setArray</span><span class="p">);</span>
 
 <span class="c1">//output</span>
-<span class="p">[</span> <span class="p">[</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;punit&#39;</span> <span class="p">],</span> <span class="p">[</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="mf">42</span> <span class="p">]</span> <span class="p">]</span>
-<span class="p">[</span> <span class="mf">1</span><span class="p">,</span> <span class="mf">2</span><span class="p">,</span> <span class="mf">3</span><span class="p">,</span> <span class="mf">4</span> <span class="p">]</span>
-<span class="p">[</span> <span class="mf">1</span><span class="p">,</span> <span class="mf">2</span><span class="p">,</span> <span class="mf">3</span><span class="p">,</span> <span class="mf">4</span><span class="p">,</span> <span class="mf">6</span> <span class="p">]</span>
+<span class="p">[</span> <span class="p">[</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;punit&#39;</span> <span class="p">],</span> <span class="p">[</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="mi">42</span> <span class="p">]</span> <span class="p">]</span>
+<span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span> <span class="p">]</span>
+<span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span> <span class="p">]</span>
 </code></pre></div>
   </div>
   <div class="tag-cloud">

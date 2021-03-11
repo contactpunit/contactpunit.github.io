@@ -5,35 +5,35 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/</loc>
-<lastmod>2020-10-22T15:06:52-00:00</lastmod>
+<lastmod>2021-03-11T06:15:58-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
 
 <url>
 <loc>/tags.html</loc>
-<lastmod>2020-10-22T15:06:52-00:00</lastmod>
+<lastmod>2021-03-11T06:15:58-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
 
 <url>
 <loc>/categories.html</loc>
-<lastmod>2020-10-22T15:06:52-00:00</lastmod>
+<lastmod>2021-03-11T06:15:58-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
 
 <url>
 <loc>/authors.html</loc>
-<lastmod>2020-10-22T15:06:52-00:00</lastmod>
+<lastmod>2021-03-11T06:15:58-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
 
 <url>
 <loc>/archives.html</loc>
-<lastmod>2020-10-22T15:06:52-00:00</lastmod>
+<lastmod>2021-03-11T06:15:58-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
@@ -53,8 +53,29 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>/2020/08/Combinators in CSS/</loc>
-<lastmod>2020-08-22T07:58:00+05:30</lastmod>
+<loc>/2020/11/Abstract Classes in Javascript/</loc>
+<lastmod>2020-11-14T10:38:00+05:30</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.6</priority>
+</url>
+
+<url>
+<loc>/2020/11/Arrayfrom in Javascript/</loc>
+<lastmod>2020-11-08T19:54:00+05:30</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.6</priority>
+</url>
+
+<url>
+<loc>/2020/10/Combinators in CSS/</loc>
+<lastmod>2020-10-22T07:58:00+05:30</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.6</priority>
+</url>
+
+<url>
+<loc>/2020/10/Linear equations in one variable/</loc>
+<lastmod>2020-10-03T09:01:00+05:30</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.6</priority>
 </url>
@@ -137,6 +158,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>/2020/06/Custom Iterator in Javascript Example/</loc>
+<lastmod>2020-06-12T23:11:00+05:30</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.6</priority>
+</url>
+
+<url>
 <loc>/2020/06/Closures in Javascript/</loc>
 <lastmod>2020-06-10T10:00:00+05:30</lastmod>
 <changefreq>monthly</changefreq>
@@ -187,7 +215,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/category/javascript.html</loc>
-<lastmod>2020-08-22T07:58:00+05:53</lastmod>
+<lastmod>2020-11-14T10:38:00+05:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.6</priority>
+</url>
+
+<url>
+<loc>/category/mathematics.html</loc>
+<lastmod>2020-10-03T09:01:00+05:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
@@ -200,15 +235,22 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>/tag/css.html</loc>
-<lastmod>2020-08-22T07:58:00+05:53</lastmod>
+<loc>/tag/javascript.html</loc>
+<lastmod>2020-11-14T10:38:00+05:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
 
 <url>
-<loc>/tag/javascript.html</loc>
-<lastmod>2020-08-18T12:58:00+05:53</lastmod>
+<loc>/tag/css.html</loc>
+<lastmod>2020-10-22T07:58:00+05:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.6</priority>
+</url>
+
+<url>
+<loc>/tag/mathematics.html</loc>
+<lastmod>2020-10-03T09:01:00+05:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
@@ -222,7 +264,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/author/punit-jain.html</loc>
-<lastmod>2020-08-22T07:58:00+05:53</lastmod>
+<lastmod>2020-11-14T10:38:00+05:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
