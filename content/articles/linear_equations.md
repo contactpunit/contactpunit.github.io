@@ -1,5 +1,5 @@
 title: Linear equations in one variable
-date: 2021-03-03 09:01
+date: 2021-02-25 09:01
 author: Punit Jain
 Category: Mathematics
 Slug: Linear equations in one variable
