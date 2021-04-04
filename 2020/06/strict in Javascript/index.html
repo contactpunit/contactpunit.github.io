@@ -104,7 +104,7 @@
 <p>It is always recommended to use 'strict' while you create javascript programs to avoid unexpected results.
 Lets see below example to understand one of the use-case:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">fullname</span><span class="p">(</span><span class="nx">firstname</span><span class="p">,</span> <span class="nx">lastname</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">arguments</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;dummy&#39;</span><span class="p">;</span>
+  <span class="nx">arguments</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;dummy&#39;</span><span class="p">;</span>
   <span class="k">return</span> <span class="nx">firstname</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nx">lastname</span><span class="p">;</span>
 <span class="p">}</span>
 
@@ -118,7 +118,7 @@ arguments is an alias to the values passed inside a function. You can treat it a
 <p>This can be avoided by using strict as in example below:</p>
 <div class="highlight"><pre><span></span><code><span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
 <span class="kd">function</span> <span class="nx">fullname</span><span class="p">(</span><span class="nx">firstname</span><span class="p">,</span> <span class="nx">lastname</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">arguments</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;dummy&#39;</span><span class="p">;</span>
+  <span class="nx">arguments</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;dummy&#39;</span><span class="p">;</span>
   <span class="k">return</span> <span class="nx">firstname</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nx">lastname</span><span class="p">;</span>
 <span class="p">}</span>
 

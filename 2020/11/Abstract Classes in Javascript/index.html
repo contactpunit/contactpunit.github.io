@@ -107,7 +107,7 @@ however here we will discuss on how to create an abstract base class in javascri
 <p>An abstract base class is a class which cannot be instantiated, however can be inherited.
 Objects are created from inherited class.</p>
 <p>The way to create abstract class is as below:</p>
-<div class="highlight"><pre><span></span><code><span class="kr">class</span> <span class="nx">Car</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nx">Car</span> <span class="p">{</span>
     <span class="nx">constructor</span><span class="p">(</span><span class="nx">numTypres</span><span class="p">,</span> <span class="nx">numWindows</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">numTypres</span> <span class="o">=</span> <span class="nx">numTypres</span><span class="p">;</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">numWindows</span> <span class="o">=</span> <span class="nx">numWindows</span><span class="p">;</span>
@@ -117,19 +117,19 @@ Objects are created from inherited class.</p>
     <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kr">class</span> <span class="nx">Ford</span> <span class="kr">extends</span> <span class="nx">Car</span> <span class="p">{</span>
+<span class="kd">class</span> <span class="nx">Ford</span> <span class="k">extends</span> <span class="nx">Car</span> <span class="p">{</span>
     <span class="nx">constructor</span><span class="p">(</span><span class="nx">numTypres</span><span class="p">,</span> <span class="nx">numWindows</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kr">super</span><span class="p">(</span><span class="nx">numTypres</span><span class="p">,</span> <span class="nx">numWindows</span><span class="p">);</span>
+        <span class="k">super</span><span class="p">(</span><span class="nx">numTypres</span><span class="p">,</span> <span class="nx">numWindows</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kr">const</span> <span class="nx">c</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Car</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="kd">const</span> <span class="nx">c</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Car</span><span class="p">(</span><span class="mf">4</span><span class="p">,</span> <span class="mf">6</span><span class="p">)</span>
 
 <span class="c1">// throw new Error(&#39;base class cannot be instantiated&#39;)</span>
             <span class="o">^</span>
 <span class="c1">//Error: base class cannot be instantiated</span>
 
-<span class="kr">const</span> <span class="nx">f</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Ford</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="kd">const</span> <span class="nx">f</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Ford</span><span class="p">(</span><span class="mf">4</span><span class="p">,</span> <span class="mf">6</span><span class="p">)</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">f</span><span class="p">)</span>
 
 <span class="c1">// Ford { numTypres: 4, numWindows: 6 }</span>
